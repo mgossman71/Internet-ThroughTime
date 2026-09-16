@@ -1,0 +1,554 @@
+/* ============================================================
+   BASE — reset, layout shell, shared components, CRT effects
+   Era-specific color tokens live in themes.css
+   ============================================================ */
+
+:root {
+  /* Base tokens (overridden per-era in themes.css) */
+  --bg: #0a0e14;
+  --fg: #d8e2ea;
+  --fg-dim: #8b98a5;
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --accent: #5fd3c4;
+  --accent-soft: rgba(95, 211, 196, 0.15);
+  --glow: rgba(95, 211, 196, 0.45);
+  --crt-scanline-opacity: 0.18;
+
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'VT323', var(--font-mono);
+
+  --radius: 6px;
+  --header-h: 56px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+button {
+  font-family: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------- CRT shell layout ---------------- */
+
+.crt-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.crt-frame {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.crt-header {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--panel-border);
+  position: relative;
+  z-index: 5;
+}
+
+.crt-brand {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.crt-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--glow);
+  animation: brand-pulse 2.4s ease-in-out infinite;
+}
+
+.crt-brand-sep {
+  color: var(--fg-dim);
+}
+
+.crt-main {
+  flex: 1;
+  padding: 32px 20px 48px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crt-footer {
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid var(--panel-border);
+  padding: 10px 8px 14px;
+  background: color-mix(in srgb, var(--bg) 82%, black);
+}
+
+/* ---------------- CRT effects ---------------- */
+
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.55) 3px
+  );
+  opacity: var(--crt-scanline-opacity);
+  mix-blend-mode: multiply;
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 41;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.38) 100%
+  );
+}
+
+/* ---------------- Era enter transition ---------------- */
+
+.era-enter {
+  animation: era-in 650ms ease both;
+  width: 100%;
+}
+
+@keyframes era-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: brightness(1.8);
+  }
+  60% {
+    filter: brightness(1.15);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+}
+
+@keyframes brand-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* ---------------- Speculative banner ---------------- */
+
+.speculative-banner {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-align: center;
+  padding: 8px 16px;
+  margin-bottom: 28px;
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+  width: 100%;
+}
+
+/* ---------------- Buttons ---------------- */
+
+.btn-primary {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  padding: 14px 30px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  box-shadow: 0 0 22px var(--glow);
+  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow: 0 0 34px var(--glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  padding: 10px 18px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* ---------------- Sound toggle ---------------- */
+
+.sound-toggle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fg-dim);
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.sound-toggle.is-on {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-soft);
+}
+
+.sound-icon {
+  font-size: 13px;
+}
+
+/* ---------------- Timeline nav ---------------- */
+
+.timeline-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tl-arrow {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 52px;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--fg-dim);
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.tl-arrow:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tl-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.tl-track {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 2px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--panel-border) transparent;
+}
+
+.tl-chip {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 86px;
+  padding: 6px 10px 7px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.tl-chip:hover {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+
+.tl-chip.is-past {
+  color: var(--fg);
+  border-color: var(--panel-border);
+}
+
+.tl-chip.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--fg);
+  box-shadow: 0 0 14px var(--accent-soft);
+}
+
+.tl-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.tl-title {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ---------------- Typewriter ---------------- */
+
+.tw-cursor {
+  color: var(--accent);
+  animation: tw-blink 1s steps(1) infinite;
+}
+
+@keyframes tw-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------------- Era placeholder ---------------- */
+
+.era-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+}
+
+.ph-terminal {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 2;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  padding: 28px 34px;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+.ph-prompt {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.ph-warn {
+  color: #ffb347;
+  letter-spacing: 0.12em;
+}
+
+/* ---------------- Intro scene ---------------- */
+
+.intro-scene {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 26px;
+  width: 100%;
+  max-width: 780px;
+}
+
+.intro-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 10vw, 108px);
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  text-shadow: 0 0 26px var(--glow);
+}
+
+.intro-typed {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--fg-dim);
+  min-height: 3.2em;
+  max-width: 620px;
+}
+
+.intro-copy {
+  max-width: 640px;
+  color: var(--fg-dim);
+  font-size: 15px;
+  margin: 0;
+}
+
+.intro-actions {
+  margin-top: 6px;
+}
+
+.intro-notes {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-dim);
+  letter-spacing: 0.06em;
+}
+
+/* ---------------- Panels (shared by simulations) ---------------- */
+
+.panel {
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.panel-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+.led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #3a3f45;
+  transition: background 120ms ease, box-shadow 120ms ease;
+}
+
+.led.is-on {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+.led.blink {
+  animation: led-blink 1.4s steps(2) infinite;
+}
+
+@keyframes led-blink {
+  50% {
+    background: #3a3f45;
+    box-shadow: none;
+  }
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 640px) {
+  .crt-main {
+    padding: 22px 12px 36px;
+  }
+
+  .tl-title {
+    display: none;
+  }
+
+  .tl-chip {
+    min-width: 64px;
+  }
+}
+
+/* ---------------- Reduced motion ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .era-enter,
+  .crt-brand-dot,
+  .tw-cursor,
+  .led.blink {
+    animation: none !important;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

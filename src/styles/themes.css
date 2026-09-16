@@ -1,0 +1,100 @@
+/* ============================================================
+   ERA THEMES — each era class overrides the base tokens.
+   The active era class is set on .crt-shell by CRTShell.
+   ============================================================ */
+
+/* Prologue — quiet dark blue-teal */
+.theme-intro {
+  --bg: #0a0e14;
+  --fg: #dce6ee;
+  --fg-dim: #8b98a5;
+  --accent: #5fd3c4;
+  --accent-soft: rgba(95, 211, 196, 0.14);
+  --glow: rgba(95, 211, 196, 0.4);
+  --crt-scanline-opacity: 0.1;
+}
+
+/* 1969 ARPANET — phosphor green lab, strong CRT */
+.theme-arpanet {
+  --bg: #04080a;
+  --fg: #b8ffcf;
+  --fg-dim: #5f9c72;
+  --panel: rgba(60, 255, 130, 0.04);
+  --panel-border: rgba(90, 255, 150, 0.28);
+  --accent: #4dff88;
+  --accent-soft: rgba(77, 255, 136, 0.12);
+  --glow: rgba(77, 255, 136, 0.5);
+  --crt-scanline-opacity: 0.32;
+}
+
+/* 1970s–80s terminals — amber P1 phosphor */
+.theme-amber {
+  --bg: #140c01;
+  --fg: #ffcf87;
+  --fg-dim: #9c7543;
+  --panel: rgba(255, 190, 80, 0.05);
+  --panel-border: rgba(255, 190, 90, 0.3);
+  --accent: #ffa62b;
+  --accent-soft: rgba(255, 166, 43, 0.14);
+  --glow: rgba(255, 166, 43, 0.5);
+  --crt-scanline-opacity: 0.3;
+}
+
+/* 1990s web — Windows 95 teal + silver */
+.theme-web90 {
+  --bg: #063c3c;
+  --fg: #eef4f4;
+  --fg-dim: #9fb8b4;
+  --panel: rgba(192, 192, 192, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.25);
+  --accent: #ffd84d;
+  --accent-soft: rgba(255, 216, 77, 0.14);
+  --glow: rgba(255, 216, 77, 0.35);
+  --crt-scanline-opacity: 0.14;
+}
+
+/* 2000s portal era — deep blue + orange */
+.theme-2000s {
+  --bg: #0c1224;
+  --fg: #e8ecf5;
+  --fg-dim: #8a93ab;
+  --accent: #ff7a2f;
+  --accent-soft: rgba(255, 122, 47, 0.14);
+  --glow: rgba(255, 122, 47, 0.4);
+  --crt-scanline-opacity: 0.08;
+}
+
+/* 2010s mobile — night blue + link blue */
+.theme-mobile {
+  --bg: #0a1020;
+  --fg: #e6ecf8;
+  --fg-dim: #8391b0;
+  --accent: #4da3ff;
+  --accent-soft: rgba(77, 163, 255, 0.14);
+  --glow: rgba(77, 163, 255, 0.45);
+  --crt-scanline-opacity: 0.05;
+}
+
+/* Modern infrastructure — near-black + violet */
+.theme-modern {
+  --bg: #06090f;
+  --fg: #dfe6f2;
+  --fg-dim: #7e8aa0;
+  --accent: #8b7bff;
+  --accent-soft: rgba(139, 123, 255, 0.14);
+  --glow: rgba(139, 123, 255, 0.5);
+  --crt-scanline-opacity: 0.05;
+}
+
+/* SPECULATIVE future — distinct magenta/violet, dashed identity */
+.theme-future {
+  --bg: #120321;
+  --fg: #f2e6ff;
+  --fg-dim: #9a7fc0;
+  --panel: rgba(255, 90, 220, 0.05);
+  --panel-border: rgba(255, 90, 220, 0.35);
+  --accent: #ff4dd8;
+  --accent-soft: rgba(255, 77, 216, 0.14);
+  --glow: rgba(255, 77, 216, 0.55);
+  --crt-scanline-opacity: 0.12;
+}

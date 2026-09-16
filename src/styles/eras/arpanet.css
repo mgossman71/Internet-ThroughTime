@@ -1,0 +1,490 @@
+/* ============================================================
+   ARPANET ERA — exhibit 01 styles (1969 lab, green phosphor)
+   Tokens come from .theme-arpanet in themes.css
+   ============================================================ */
+
+.arpanet-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+/* ---------------- Era header ---------------- */
+
+.era-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 760px;
+}
+
+.era-head-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin: 0;
+}
+
+.era-head-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 76px);
+  line-height: 1;
+  margin: 0;
+  color: var(--fg);
+  text-shadow: 0 0 24px var(--glow);
+}
+
+.era-head-lede {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--fg-dim);
+  min-height: 2em;
+}
+
+/* ---------------- Main grid ---------------- */
+
+.arpanet-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.arpanet-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ---------------- Map ---------------- */
+
+.arpanet-map {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.arpanet-map-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(77, 255, 136, 0.05), transparent 60%),
+    radial-gradient(ellipse at 70% 70%, rgba(77, 255, 136, 0.04), transparent 50%);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.arpanet-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arpanet-node-layer {
+  position: absolute;
+  pointer-events: none;
+}
+
+.arpanet-node-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  transition: transform 150ms ease;
+}
+
+.arpanet-node-btn:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.arpanet-node-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.arpanet-node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.arpanet-node-btn.is-off .arpanet-node-dot {
+  background: transparent;
+  border: 2px dashed var(--fg-dim);
+  box-shadow: none;
+}
+
+.arpanet-map-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ---------------- Node card ---------------- */
+
+.node-card {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.node-card-name {
+  margin: 0 0 6px;
+}
+
+.node-card-meta {
+  margin: 0;
+  color: var(--fg-dim);
+}
+
+/* ---------------- Panel (right column) ---------------- */
+
+.arpanet-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.node-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node-row {
+  display: grid;
+  grid-template-columns: 14px 44px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.node-id {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.node-org {
+  color: var(--fg-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node-btn {
+  padding: 6px 10px;
+  font-size: 10px;
+}
+
+.node-btn.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---------------- Send form ---------------- */
+
+.send-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.send-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--fg-dim);
+  flex: 1;
+}
+
+.send-field select {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 7px 8px;
+}
+
+.send-field select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.send-arrow {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  padding-bottom: 8px;
+}
+
+.send-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.arpanet-send-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+.send-stats {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.08em;
+  margin: 12px 0 0;
+}
+
+/* ---------------- Log terminal ---------------- */
+
+.log-terminal {
+  height: 210px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.8;
+  scrollbar-width: thin;
+  scrollbar-color: var(--panel-border) transparent;
+}
+
+.log-line {
+  margin: 0;
+  color: var(--fg);
+  word-break: break-word;
+}
+
+.log-prompt {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.log-ok {
+  color: var(--accent);
+}
+
+.log-err {
+  color: #ff7a6e;
+}
+
+/* ---------------- Routing exhibit ---------------- */
+
+.arpanet-routing {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rsim-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.rsim-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.rsim-readout {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  min-height: 1.6em;
+  margin: 10px 0 0;
+}
+
+.rsim-edge {
+  stroke: var(--fg-dim);
+  stroke-opacity: 0.4;
+  stroke-width: 1.5;
+  transition: stroke 200ms ease, stroke-width 200ms ease;
+}
+
+.rsim-edge.is-hi {
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 4px var(--glow));
+}
+
+.rsim-edge.is-down {
+  stroke-dasharray: 3 5;
+  stroke-opacity: 0.25;
+}
+
+.rsim-node-box {
+  fill: rgba(0, 0, 0, 0.4);
+  stroke: var(--panel-border);
+  stroke-width: 1.5;
+  transition: stroke 200ms ease, fill 200ms ease;
+}
+
+.rsim-node.is-down .rsim-node-box {
+  stroke-dasharray: 4 4;
+  stroke-opacity: 0.5;
+}
+
+.rsim-node-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  fill: var(--fg);
+}
+
+.rsim-down {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: #ff7a6e;
+  letter-spacing: 0.2em;
+}
+
+.rsim-lost {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: #ff7a6e;
+  letter-spacing: 0.14em;
+}
+
+.rsim-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rsim-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rsim-toggle.is-down {
+  border-color: #ff7a6e;
+  color: #ff9d94;
+}
+
+.rsim-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+}
+
+.rsim-slider strong {
+  color: var(--fg);
+}
+
+.rsim-slider input[type='range'] {
+  accent-color: var(--accent);
+  width: 100%;
+}
+
+.rsim-send {
+  padding: 11px 20px;
+  font-size: 13px;
+}
+
+.rsim-counts {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.rsim-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.rsim-notes h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin: 0 0 6px;
+}
+
+.rsim-notes p {
+  font-size: 13px;
+  color: var(--fg-dim);
+  margin: 0;
+}
+
+/* ---------------- Facts + footnote ---------------- */
+
+.era-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid var(--accent);
+}
+
+.era-facts li {
+  font-size: 14px;
+  color: var(--fg-dim);
+}
+
+.era-footnote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .arpanet-grid,
+  .rsim-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rsim-notes {
+    grid-template-columns: 1fr;
+  }
+}
