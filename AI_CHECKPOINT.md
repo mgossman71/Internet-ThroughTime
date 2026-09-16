@@ -1,11 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-16 (Phase 0 + Phase 1 complete)._
+_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose complete)._
 
 ## Current Project State
 
-Working React 18 + TypeScript + Vite 5 app. Build green (`tsc -b && vite
-build`), tests green (13/13, vitest + Testing Library).
+Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
+(`docker compose up --build` → http://localhost:8080, verified healthy).
+Build green (`tsc -b && vite build`), tests green (13/13, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -65,6 +66,11 @@ no autoplay, persisted mute), reduced-motion support, responsive layout.
 - [x] RoutingSim: failover, latency/loss sliders, hop animation, counts
 - [x] 8 era themes (intro/arpanet/amber/web90/2000s/mobile/modern/future)
 - [x] App smoke tests + ArpanetScene component tests (4 tests)
+- [x] **Docker Compose**: multi-stage Dockerfile (node:22-alpine build →
+      nginx:1.27-alpine serve, healthcheck), docker-compose.yml (`web` +
+      optional `dev` profile with Vite HMR), nginx.conf (SPA fallback,
+      gzip, immutable asset caching), .dockerignore — verified: build,
+      up, curl root/assets 200, status healthy
 - [x] README.md, docs/SOURCES.md (ARPANET claims A1–A6 + access notes),
       docs/DEVELOPMENT_LOG.md
 - [x] `prefers-reduced-motion` respected in CSS + JS paths
@@ -155,6 +161,9 @@ Read in this order to resume:
 ## Recent Changes
 
 (2026-09-16)
+- **Docker Compose support**: Dockerfile (multi-stage), docker-compose.yml
+  (web + dev profile), nginx.conf, .dockerignore. Verified end-to-end:
+  image build, container healthy, HTTP 200 for page/JS/CSS/SPA fallback.
 - Built Phase 0 foundation + Phase 1 ARPANET exhibit from scratch.
 - Fixed `eraRegistry` missing `status` field (added BUILT-derived status).
 - Fixed ArpanetScene relative import paths (`../../` for sims/styles).
@@ -176,6 +185,13 @@ Read in this order to resume:
 ## Commands
 
 ```bash
+# Docker (canonical)
+docker compose up --build          # production → http://localhost:8080
+docker compose --profile dev up    # Vite HMR in container → http://localhost:5173
+docker compose down                # teardown
+docker compose ps                  # health (web should be "healthy")
+
+# Native dev
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build

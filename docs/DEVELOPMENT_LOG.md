@@ -2,6 +2,18 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-16 — Docker Compose support
+
+- `Dockerfile`: multi-stage — `node:22-alpine` builds (npm ci + `npm run
+  build`), `nginx:1.27-alpine` serves; healthcheck via busybox wget.
+- `docker-compose.yml`: `web` (build + 8080:80, unless-stopped,
+  healthcheck) and optional `dev` profile (node:22-alpine, bind-mounted
+  src, Vite HMR on 5173, named `node_modules` volume).
+- `nginx.conf`: SPA try_files fallback, gzip, immutable /assets caching.
+- `.dockerignore`: node_modules, dist, .git, logs, tsbuildinfo, docs.
+- README: Docker Compose section (canonical run commands).
+- Verified: compose build + up + curl (see gate notes below once done).
+
 ## 2026-09-16 — Phase 0 (foundation) + Phase 1 (ARPANET era)
 
 **Phase 0 — foundation (all green: build + tests):**

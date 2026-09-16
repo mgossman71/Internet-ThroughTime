@@ -35,6 +35,23 @@ npm test           # run vitest suite (unit + component tests)
 npm run preview    # serve the production build locally
 ```
 
+## Docker Compose
+
+The canonical way to run the site is Docker Compose:
+
+```bash
+docker compose up --build      # production: build + nginx → http://localhost:8080
+docker compose --profile dev up   # dev: Vite hot-reload in a container → http://localhost:5173
+docker compose down            # teardown
+docker compose ps              # health status (web should be "healthy")
+```
+
+- Production image: multi-stage `Dockerfile` (Node 22 builds, nginx:1.27-alpine
+  serves), SPA fallback, gzip, immutable caching for hashed assets.
+- The `dev` profile bind-mounts `src/` and runs Vite with HMR; a named
+  volume keeps `node_modules` inside Docker.
+- `.dockerignore` keeps the build context lean (no `node_modules`/`dist`/`.git`).
+
 ## Stack
 
 - React 18 + TypeScript + Vite 5

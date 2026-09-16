@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+# Build artifacts & deps (rebuilt inside the image)
+node_modules
+dist
+*.tsbuildinfo
+*.local
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+
+# Dev-only docs that the runtime image doesn't need
+docs
+AI_CHECKPOINT.md
+AI_CHECKPOINT.md.*
