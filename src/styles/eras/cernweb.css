@@ -1,0 +1,341 @@
+/* ============================================================
+   1989–1993 CERN & THE WEB (exhibit 05) — era-specific styles.
+   Shared component styles (.panel, .era-head, .btn, …) come from
+   arpanet.css / base.css; theme-web90 tokens are applied by CRTShell.
+   ============================================================ */
+
+.cw-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.cw-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(0, 1.3fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.cw-left {
+  min-width: 0;
+}
+
+/* ---------------- Year desk ---------------- */
+
+.cw-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cw-desk-head h3 {
+  margin: 0 0 6px;
+}
+
+.cw-desk-sub {
+  font-size: 12px;
+  color: var(--fg-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cw-yearlist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cw-yearbtn {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.cw-yearbtn:hover {
+  border-color: var(--accent);
+}
+
+.cw-yearbtn.is-sel {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.cw-year-num {
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.cw-year-title {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+}
+
+.cw-yearcard {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cw-yearcard p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+/* ---------------- Browser ---------------- */
+
+.cw-browser {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.cw-brow-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 8px;
+}
+
+.cw-brow-head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+}
+
+.cw-brow-state {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.cw-urlbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.cw-url-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--fg-dim);
+}
+
+.cw-url {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+.cw-page {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
+  min-height: 200px;
+}
+
+.cw-no-web {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cw-no-web-title {
+  margin: 0;
+  font-family: var(--font-mono);
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+
+.cw-no-web p,
+.cw-page-doc p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--fg);
+}
+
+.cw-page-title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+
+.cw-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cw-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.cw-link:hover {
+  text-shadow: 0 0 10px var(--glow);
+
+.cw-public {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cw-stamp {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  text-align: center;
+  background: var(--accent-soft);
+}
+
+.cw-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cw-status {
+  border-top: 1px solid var(--panel-border);
+  padding-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  min-height: 1.2em;
+}
+
+/* ---------------- Milestones ---------------- */
+
+.cw-milestones h3 {
+  margin: 0 0 12px;
+}
+
+.cw-mile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.cw-mile-list li {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cw-mile-year {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.cw-mile-title {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--fg);
+}
+
+.cw-mile-detail {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--fg-dim);
+}
+
+.cw-mile-list li.cw-mile-out {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+/* ---------------- Facts + footnote ---------------- */
+
+.cw-facts h3 {
+  margin: 0 0 12px;
+}
+
+.cw-facts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid var(--accent);
+}
+
+.cw-facts li {
+  font-size: 14px;
+  color: var(--fg-dim);
+}
+
+.cw-fact-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.cw-footnote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .cw-grid {
+    grid-template-columns: 1fr;
+  }
+}
+}

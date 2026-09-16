@@ -1,0 +1,214 @@
+/* ============================================================
+   1971–1982 EXPANSION (exhibit 02) — era-specific styles.
+   Shared component styles (.era-head, .node-list, .send-row,
+   .log-terminal, .panel, …) are defined in arpanet.css and reused.
+   ============================================================ */
+
+.exp-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.exp-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ---------------- Map ---------------- */
+
+.exp-map-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 35% 45%, rgba(77, 255, 136, 0.06), transparent 60%),
+    radial-gradient(ellipse at 78% 25%, rgba(77, 255, 136, 0.05), transparent 45%),
+    rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.exp-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.exp-node-layer {
+  position: absolute;
+  pointer-events: none;
+}
+
+.exp-node-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+}
+
+.exp-node-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--glow);
+  transition: transform 150ms ease;
+}
+
+.exp-node-btn:hover .exp-node-dot {
+  transform: scale(1.5);
+}
+
+.exp-node-btn.is-sel .exp-node-dot {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.exp-map-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+/* ---------------- Panel (timeline + controls) ---------------- */
+
+.exp-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.exp-year-big {
+  font-family: var(--font-display);
+  font-size: 54px;
+  line-height: 1;
+  margin: 0 0 10px;
+  color: var(--fg);
+  text-shadow: 0 0 22px var(--glow);
+  letter-spacing: 0.04em;
+}
+
+.exp-year-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.exp-year-controls .btn-ghost {
+  padding: 8px 14px;
+  font-size: 11px;
+}
+
+.exp-year-controls .btn-ghost:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.exp-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  margin: 4px 0 10px;
+}
+
+.exp-readout {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.exp-send-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+/* ---------------- Milestones strip ---------------- */
+
+.exp-mile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.exp-mile-list li {
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 4px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.exp-mile-year {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-dim);
+}
+
+.exp-mile-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg);
+}
+
+.exp-mile-detail {
+  color: var(--fg-dim);
+}
+
+.exp-mile-list li.is-past {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.exp-mile-list li.is-past .exp-mile-year {
+  color: var(--accent);
+}
+
+.exp-mile-list li.is-future {
+  opacity: 0.55;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}

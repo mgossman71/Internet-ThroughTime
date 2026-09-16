@@ -7,7 +7,8 @@ speculative future.
 
 Visitors don't just read about the technology: they **operate simplified
 simulations** of it — boot ARPANET nodes, send packets through a routing
-diamond, (soon) dial a modem and log into a BBS.
+diamond, dial a modem and log into a BBS, and step through the years that
+brought the World Wide Web into being.
 
 ## Status
 
@@ -15,11 +16,11 @@ diamond, (soon) dial a modem and log into a BBS.
 | --- | --- |
 | Intro (prologue) | ✅ built |
 | 1969 ARPANET + packet-routing sim | ✅ built |
-| 1971–1982 expansion | 🔜 coming soon |
-| 1983 protocol switch | 🔜 coming soon |
-| BBS & dial-up | 🔜 coming soon |
-| CERN & the Web | 🔜 coming soon |
-| Early web / GeoCities | 🔜 coming soon |
+| 1971–1982 expansion | ✅ built |
+| 1983 protocol switch | ✅ built |
+| BBS & dial-up | ✅ built |
+| CERN & the Web (1989–1993) | ✅ built |
+| Linux, 1991–1996 | ✅ built |
 | 2000s → mobile → infrastructure → AI | 🔜 coming soon |
 | Speculative future | 🔜 coming soon |
 

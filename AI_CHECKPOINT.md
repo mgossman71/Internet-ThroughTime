@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose complete)._
+_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (13/13, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (80/80, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -14,10 +14,51 @@ Playable today:
   UTAH) with node power-on, animated packet travel, operator console with
   terminal log, "replay the first message" scripted sequence (the standard
   LOGIN/"LO" account, clearly attributed), grounded fact list.
+- **1971–1982 expansion era (exhibit 02)** — year stepper (1969→1982) +
+  slider; named sites light up by documented year (BBN 1970, first TIP 1971,
+  London + Norway 1973); aggregated population dots render the documented
+  site counts (24/37/62/111 — never interpolated); milestone strip
+  1970–1981 (past/future states); message send over the year-filtered
+  topology (reuses `routingEngine`); "replay the decade" script.
+- **1983 protocol switch era (exhibit 03)** — all 8 hosts start on NCP;
+  per-host SWITCH (NCP→TCP/IP) or scripted FLAG DAY (Jan 1, 1983 sweep,
+  P1); the catch: cross-protocol sends fail with PROTOCOL MISMATCH (P7);
+  the straggler — one host keeps NCP by permission into mid-1983 (P4,
+  illustrative stand-in) — must be switched to finish; MILNET splits off
+  on flag day and appears as a live TCP/IP node (P5); NCP vs TCP/IP
+  protocol desk (RFC 801 quotes, P2); milestone strip 1981 → mid-1983
+  (past/active/future states).
 - **Packet-routing exhibit** — SVG diamond topology (SOURCE → Router A/B →
   DESTINATION) with failover toggles, latency/loss sliders, hop-by-hop
   animation, teaching notes. Built on a pure, unit-tested routing engine.
-- All other 11 eras render a styled "UNDER CONSTRUCTION" placeholder so the
+- **Dial-up / BBS era (exhibit 04)** — pick a modem standard (V.22 1200 /
+  V.22bis 2400 / V.32 9600 / V.32bis 14.4k), dial the board (ATDT + ring +
+  handshake), log in, browse seeded ASCII messages, and post a reply
+  (240-char limit); hang up and the board survives. Built on a pure,
+  unit-tested `dialupEngine` (dial → carrier → login → menu → post) with
+  synthesized modem sounds.
+- **CERN & the Web era (exhibit 05, 1989–1993)** — pick a year: 1989
+  (proposal stage, "NO WEB YET"), 1990 (first browser + server, project page
+  only), 1991 (the first website is live — follow the links), 1993 (public
+  domain — grab the free source). The WorldWideWeb browser's reach grows as
+  the years pass; every claim is W-tagged (W1–W7) to `docs/SOURCES.md`.
+  Built on a pure, unit-tested `cernwebEngine`.
+- **Linux era (exhibit 06, 1991–1996)** — told in THREE CHAPTERS around
+  one fork: CH 1 (1991) "A hobby, announced in a forum" — the
+  comp.os.minix announcement in the kernel-mail terminal (visible with
+  zero clicks; illustrative recreation built on the verified fragments
+  "hobby operating system" and "free of all commercial interest", L1);
+  CH 2 (1992) "The fork: open or closed" — RELEASE UNDER THE GNU GPL
+  (history, L2) vs. KEEP IT CLOSED (a LABELED HYPOTHETICAL — real Linux
+  went GPL); CH 3 (1996) "It runs the Web" — open branch: RECEIVE A
+  PATCH → 0.12 → 1.0 (5 patches) → 2.0 (12 patches) + "where it runs"
+  (web servers, TOP500, L5); closed branch: the story ends at 0.12
+  (hypothetical). Skipping to 1996 undecided gets a recovery path back to
+  the fork. A curator's closing card ("WHAT YOU SAW") ends the era. Every
+  claim is L-tagged (L1–L5) to `docs/SOURCES.md`. Built on a pure,
+  unit-tested `linuxEngine` (state tracks `chapter`, `branch` (locked
+  once chosen; REVISE rescinds it), `contributors`, `versionIdx`).
+- All other 6 eras render a styled "UNDER CONSTRUCTION" placeholder so the
   timeline is navigable end-to-end.
 
 Global systems working: central timeline store, era theme switching (8
@@ -63,6 +104,9 @@ no autoplay, persisted mute), reduced-motion support, responsive layout.
 - [x] ARPANET sim: node power, packet animation w/ trails, console log,
       first-message replay, node file card
 - [x] routingEngine (BFS + latency + loss) + 9 unit tests
+- [x] Expansion 1971–1982 era (exhibit 02): expansionData + growthEngine
+      (pure, 6 unit tests) + useExpansionSim + canvas growth map (aggregated
+      population dots, ghost future nodes) + operator panel + scene (3 tests)
 - [x] RoutingSim: failover, latency/loss sliders, hop animation, counts
 - [x] 8 era themes (intro/arpanet/amber/web90/2000s/mobile/modern/future)
 - [x] App smoke tests + ArpanetScene component tests (4 tests)
@@ -77,28 +121,30 @@ no autoplay, persisted mute), reduced-motion support, responsive layout.
 
 ## Current Work
 
-Phase 1 (ARPANET era) was just completed and gated (build + 13/13 tests).
-Immediate remaining item when this checkpoint was being written: finalizing
-this file + first git commit.
+Exhibit 06 is now the **Linux, 1991–1996** era ("The Code Becomes a Commons"):
+the old 1993–1996 "Browsers & Personal Pages" era was fully removed
+(`src/simulations/earlyweb/`, `src/eras/early-web/`,
+`src/styles/eras/earlyweb.css` deleted), and a new three-chapter narrative
+took its slot in `eraList.ts` (`linux90s`, 1991–1996) and `eraRegistry.ts`
+(BUILT). New files: `src/simulations/linux90s/` (linuxData, linuxEngine +
+14 unit tests, useLinuxSim, LinuxTerminal) and `src/eras/linux90s/`
+(LinuxScene + 6 component tests) + `src/styles/eras/linux90s.css`. Claims
+verified 2026-09-16 → `docs/SOURCES.md` §L (L1–L5); the "KEEP IT CLOSED"
+fork is a LABELED HYPOTHETICAL; the terminal's patch-mail is a LABELED
+ILLUSTRATIVE recreation (scene footnote). Gates all green: `tsc -b` +
+`vite build`, `npm test` (80/80), and a 28/28 headless-Chrome CDP
+walkthrough of both fork branches + the skip-ahead recovery path
+(screenshot /tmp/linux90s-walkthrough.png, script /tmp/linux90s-walkthrough.mjs).
 
 ## Next Actions (prioritized)
 
-1. **Commit** current state (checkpoint, docs, all src).
-2. **Phase 2 — Dial-up / BBS era** (`src/eras/dialup/` +
-   `src/simulations/bbs/`):
-   - modem state machine (dialing → carrier → handshake → 2400/9600
-     connect) using existing `sound.modemDial()/modemHandshake()`;
-     activity LEDs; keep waits short (< ~6s total).
-   - BBS simulation: login prompt → main menu → boards/files/userlist/chat
-     (pure state machine + tests, rendering separate).
-   - Terminal sim (ping/traceroute/telnet/ftp/finger/whois) as educational
-     local output.
-   - Mark `dialup` built in `src/app/eraRegistry.ts` (`BUILT` set + scenes
-     map) once gated.
-3. **Phase 3 — Early Web**: CERN narrative (verify dates per SOURCES.md
-   TODOs first!), WorldWideWeb/Mosaic/Netscape-inspired browser frames
-   (label as inspired recreations), GeoCities-style personal homepage.
-4. Later eras per plan; each phase ends at build+test green + checkpoint.
+1. **Commit** current state (Phase 6 files, docs, registry).
+2. **Phase 7 — 2000s portal era** (`portal2000s`, next in `eraList.ts`
+   order, "Portals, P2P & Search"): broadband-era portals, P2P/file sharing,
+   and the rise of search (verify dates/claims first — see SOURCES.md "Other
+   eras"); any specific named services/pages are ILLUSTRATIVE recreations and
+   must be labeled as such.
+3. Later eras per plan; each phase ends at build+test green + checkpoint.
 
 ## Known Issues
 
@@ -118,7 +164,8 @@ this file + first git commit.
   and read it, and re-verify side effects (node_modules, .git) explicitly.
 - Canvas + SVG visuals are NOT covered by tests (jsdom has no canvas
   backend); visual pass on a real browser is still owed for the ARPANET
-  map (packet trails, node button alignment at all viewports).
+  map (packet trails, node button alignment at all viewports) and the
+  expansion 1971–1982 growth map (population-dot field, ghost nodes).
 - `TypewriterText` fires `onDone` with a slightly odd guard
   (`Math.floor(t/16) > 0`) — works, but clean it if you touch that file.
 - No CI configured (no repo remote). `npm run build` + `npm test` are the
@@ -161,6 +208,91 @@ Read in this order to resume:
 ## Recent Changes
 
 (2026-09-16)
+- **Phase 6 restructure (three-chapter narrative, exhibit 06)**: the era is
+  now TOLD — CH 1 (1993) "The Web you can see" / CH 2 (1994) "The Web you
+  can own" / CH 3 (1996) "The Web they fought over" — replacing the old
+  year-desk + browser-box + demo-toggle layout (the toggle was the recurring
+  source of "looks like a bug" feedback). `earlywebData.ts`: `CHAPTERS`,
+  `DOORWAYS`, `EPILOGUE`, `CLOSING`, rewritten `LEDE`; removed `YEARS`,
+  `BROWSERS`, `BROWSERS_IN_YEAR`, `HINTS`. `earlywebEngine.ts`: `doorway:
+  'netscape' | 'ie'` + `setDoorway` (2 new unit tests) replacing
+  `browser`/`setBrowser`. New `ImageComparison.tsx` (static side-by-side,
+  reuses `DemoImage`); `GeoCitiesPage.tsx` ("YOUR PAGE" label, doorway
+  chrome, war note E7, "← Back to Chapter 2" recovery CTA);
+  `PageBuilder.tsx` (browser box + locked state removed);
+  `EarlyWebScene.tsx` (chapter stepper + per-chapter composition + closing
+  curator card); `earlyweb.css` (comparison/stepper/doorway/closing styles,
+  dead rules removed); `EarlyWebScene.test.tsx` rewritten as 5 tests around
+  the visitor arc. Gates: build green, 77/77 tests green, headless-Chrome
+  walkthrough of all three chapters — zero console/page errors.
+- **Phase 6 follow-up 2 — 1993–1996 E2 demo rework (exhibit 06)**:
+  feedback "this box always says …and the image sits RIGHT HERE" — the
+  inline-image demo (lone 🖼 emoji + museum-label sentences inside the fake
+  browser) read as a broken page. Rebuilt as the SAME mini 1993 page
+  rendered two ways: new original-SVG `DemoImage.tsx` (globe on a stand;
+  no external/copyrighted assets) — Mosaic state: image inline between the
+  paragraphs; pre-Mosaic: dotted placeholder in the text + the same image
+  in a small separate window. `GeoCitiesPage.tsx` rework; `HINTS` demo
+  copy split into `demoInline`/`inlineNext` + `demoPre`/`preNext`;
+  `earlyweb.css` gains `.ew-fakepage`/`.ew-fp-*`/`.ew-img-ph`/
+  `.ew-imgwin*`/`.ew-demo-caption` (dead `.ew-img*` rules removed); the
+  demo test now asserts the E2 caption swap. Gates: build green, 78/78
+  tests green, live headless re-check of both states (zero errors).
+- **Phase 6 follow-up — 1993 first-run guidance fix (exhibit 06)**:
+  reporter feedback "I select boxes under PAGE BUILDER and nothing happens"
+  traced to the 1993 opening state being a discoverability dead end (builder
+  locked by design, pre-Mosaic box already selected, no pointer to the
+  next step) — engine/tests were correct all along. Added `HINTS` copy
+  constants to `earlywebData.ts`; `PageBuilder.tsx` locked state now shows
+  the 🔒 note + "⏩ Fast-forward to 1994" button (existing
+  `sim.setYear(1994)`, no engine change) and a step-by-step subtitle;
+  `GeoCitiesPage.tsx` gets next-step hints under both image-demo states and
+  a "⏩ Jump to 1994" button in the no-page panel; `earlyweb.css` gains
+  `.ew-cta` / `.ew-locked-row` / `.ew-demo-hint`. Two new component tests
+  (fast-forward flow + demo-state hints) in `EarlyWebScene.test.tsx`.
+  Gates: build green, 78/78 tests green.
+- **Phase 6 — Browsers & Personal Pages era (exhibit 06, 1993–1996)**:
+  `src/simulations/earlyweb/` (earlywebData, earlywebEngine + 12 unit tests,
+  useEarlywebSim, PageBuilder, GeoCitiesPage),
+  `src/eras/early-web/EarlyWebScene.tsx` + 4 component tests,
+  `src/styles/eras/earlyweb.css`, `early-web` moved to `BUILT` in
+  `src/app/eraRegistry.ts`, SOURCES.md E1–E8 section (verified 2026-09-16;
+  Mosaic inline-images is the defining feature and it was NOT the first
+  browser, E2; GeoCities six original neighborhoods, E5; Netscape 15 Dec
+  1994 + the Windows-bundling "monopolistic and illegal" ruling, E8;
+  assembled page is an ILLUSTRATIVE recreation — labeled in the footnote),
+  README row flipped. Gates: build green, 76/76 tests green.
+- **Phase 5 — CERN & the Web era (exhibit 05, 1989–1993)**:
+  `src/simulations/cernweb/` (cernwebData, cernwebEngine + 9 unit tests,
+  useCernwebSim, BrowserWindow), `src/eras/cern-web/CernWebScene.tsx` +
+  4 component tests, `src/styles/eras/cernweb.css`, `cern-web` moved to
+  `BUILT` in `src/app/eraRegistry.ts`, SOURCES.md W1–W7 section (verified
+  2026-09-16; 1990 browser attributed to CERN not W3C, "second half of
+  1990" not the popular 30 April 1990 date; browser pages are an
+  ILLUSTRATIVE recreation of info.cern.ch — labeled in the footnote),
+  README row flipped. Gates: build green, 60/60 tests green.
+- **Phase 4 — dial-up / BBS era (exhibit 04)**:
+  `src/simulations/dialup/` (dialupData, dialupEngine + 9 unit tests,
+  useDialupSim, BbsTerminal), `src/eras/dialup/DialupScene.tsx` +
+  4 component tests, `src/styles/eras/dialup.css`, `dialup` moved to
+  `BUILT` in `src/app/eraRegistry.ts`, SOURCES.md D1–D7 section (verified
+  2026-09-16; V.22 = 1200 bit/s, 2400 = V.22bis), README row flipped.
+- **Phase 3 — 1983 protocol switch era (exhibit 03)**:
+  `src/simulations/protocol1983/` (protocolData, switchEngine + 8 unit
+  tests, useProtocolSim, ProtocolMap, ProtocolPanel),
+  `src/eras/tcpip1983/Tcpip1983Scene.tsx` + 4 component tests,
+  `src/styles/eras/tcpip1983.css`, `tcpip1983` moved to `BUILT` in
+  `src/app/eraRegistry.ts`, SOURCES.md P1–P7 section (verified
+  2026-09-16; RFC 801 primary) + A6 correction (RFC 1009 is not NCP),
+  README row flipped. Gates: build green, 34/34 tests green.
+- **Phase 2 — 1971–1982 expansion era (exhibit 02)**:
+  `src/simulations/expansion70s/` (expansionData, growthEngine + 6 unit
+  tests, useExpansionSim, ExpansionMap, ExpansionPanel),
+  `src/eras/expansion70s/Expansion70sScene.tsx` + 3 component tests,
+  `src/styles/eras/expansion70s.css`, `expansion70s` moved to `BUILT` in
+  `src/app/eraRegistry.ts`, SOURCES.md E1–E10 section (verified 2026-09-16;
+  1980s IMP counts + Copenhagen intentionally omitted), README row flipped.
+  Gates: build green, 22/22 tests green.
 - **Docker Compose support**: Dockerfile (multi-stage), docker-compose.yml
   (web + dev profile), nginx.conf, .dockerignore. Verified end-to-end:
   image build, container healthy, HTTP 200 for page/JS/CSS/SPA fallback.
@@ -176,11 +308,23 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (13/13: 9 routingEngine unit tests, 2 App smoke tests, 2 ArpanetScene
-  component tests).
+  (80/80: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
+  tests, 14 linuxEngine unit tests, 2 App smoke tests, 2 ArpanetScene
+  component tests, 3 Expansion70sScene component tests, 4 Tcpip1983Scene
+  component tests, 4 DialupScene component tests, 4 CernWebScene component
+  tests, 6 LinuxScene component tests covering the three-chapter visitor
+  arc (1991 announcement with zero clicks, 1992 fork decision both
+  branches, 1996 open-branch patch→release arc + closed-branch what-if,
+  skip-ahead recovery path, closing cards)).
 - **Unverified**: real-browser visuals (canvas trails, node button
-  alignment, SVG hop animation), audio output (synthesized tones untested
-  on hardware), mobile layout pass, reduced-motion live behavior.
+  alignment, SVG hop animation, expansion growth map: population dots +
+  ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
+  MILNET ghost→lit, straggler red flag, BBS terminal: dial sequence
+  pacing + cursor blink + auto-scroll, linux90s: terminal auto-scroll +
+  cursor blink + fork/patch panels), audio output (synthesized tones
+  untested on hardware, incl. modemDial/modemHandshake), mobile layout
+  pass, reduced-motion live behavior.
 
 ## Commands
 
@@ -195,23 +339,24 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (13 tests expected)
+npm test           # GATE: vitest (80 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. If not committed yet: `git add -A && git commit -m "Phase 0+1:
-   foundation + ARPANET era (build+tests green)"`.
-2. Begin Phase 2 (Dial-up / BBS era). Create:
-   - `src/simulations/bbs/bbsEngine.ts` (pure menu state machine) + tests
-   - `src/simulations/bbs/BbsSim.tsx` (terminal rendering)
-   - `src/simulations/dialup/useDialupSim.ts` (modem state machine using
-     `sound.modemDial()/modemHandshake()`)
-   - `src/eras/dialup/DialupScene.tsx` + `src/styles/eras/dialup.css`
-     (amber theme already exists: `.theme-amber`)
-   - Add `dialup` to the registry `BUILT` set + `scenes` map in
-     `src/app/eraRegistry.ts` once gated.
+1. If not committed yet: `git add -A && git commit -m "Exhibit 06: Linux,
+   1991–1996 (The Code Becomes a Commons) replaces Browsers & Personal
+   Pages — three-chapter fork narrative — build+tests green (80/80)"`.
+2. Begin Phase 7 (2000s portal era, `portal2000s`, 1998–2005). Follow the
+   established pattern:
+   - Verify every claim → new section in `docs/SOURCES.md` (numbered tags)
+     BEFORE writing any UI copy (see SOURCES.md "Other eras").
+   - `src/simulations/<name>/` — pure data + pure logic (RNG/state injectable)
+     + `.test.ts` (≥6 unit tests) + `use<Name>Sim.ts` hook + component(s).
+   - `src/eras/<id>/<Scene>.tsx` + component tests (≥3, incl. one full user
+     arc); `src/styles/eras/<era>.css` (theme `.theme-2000s` already exists).
+   - Add the scene to the registry `scenes` map + `portal2000s` to `BUILT`
+     in `src/app/eraRegistry.ts` once gated.
 3. Gate before moving on: `npm run build` + `npm test` green, then update
-   this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md` (verify
-   BBS/dial-up era claims before writing copy — see SOURCES.md "Other eras").
+   this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.

@@ -11,17 +11,22 @@ import type { EraDescriptor } from '../types/era';
 import { ERA_LIST } from '../data/eraList';
 import { IntroScene } from '../eras/intro/IntroScene';
 import { ArpanetScene } from '../eras/arpanet/ArpanetScene';
+import { Expansion70sScene } from '../eras/expansion70s/Expansion70sScene';
+import { Tcpip1983Scene } from '../eras/tcpip1983/Tcpip1983Scene';
+import { DialupScene } from '../eras/dialup/DialupScene';
+import { CernWebScene } from '../eras/cern-web/CernWebScene';
+import { LinuxScene } from '../eras/linux90s/LinuxScene';
 import { EraPlaceholder } from '../components/EraPlaceholder';
 
 const scenes: Record<string, EraDescriptor['Scene']> = {
   intro: IntroScene,
   arpanet: ArpanetScene,
+  expansion70s: Expansion70sScene,
+  tcpip1983: Tcpip1983Scene,
+  dialup: DialupScene,
+  'cern-web': CernWebScene,
+  linux90s: LinuxScene,
   // Remaining eras use the placeholder until built (see AI_CHECKPOINT.md):
-  expansion70s: EraPlaceholder,
-  tcpip1983: EraPlaceholder,
-  dialup: EraPlaceholder,
-  'cern-web': EraPlaceholder,
-  'early-web': EraPlaceholder,
   portal2000s: EraPlaceholder,
   broadband2000s: EraPlaceholder,
   mobile2010s: EraPlaceholder,
@@ -30,7 +35,15 @@ const scenes: Record<string, EraDescriptor['Scene']> = {
   future: EraPlaceholder,
 };
 
-const BUILT = new Set(['intro', 'arpanet']);
+const BUILT = new Set([
+  'intro',
+  'arpanet',
+  'expansion70s',
+  'tcpip1983',
+  'dialup',
+  'cern-web',
+  'linux90s',
+]);
 
 export const eraRegistry: EraDescriptor[] = ERA_LIST.map((data) => ({
   ...data,

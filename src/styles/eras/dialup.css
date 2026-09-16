@@ -1,0 +1,356 @@
+/* ============================================================
+   1986–1994 BBS & DIAL-UP (exhibit 04) — era-specific styles.
+   Shared component styles (.panel, .era-head, .btn, …) come from
+   arpanet.css / themes.css (amber theme).
+   ============================================================ */
+
+.du-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.du-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(0, 1.3fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.du-left {
+  min-width: 0;
+}
+
+/* ---------------- Modem desk ---------------- */
+
+.du-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.du-desk-head h3 {
+  margin: 0 0 6px;
+}
+
+.du-desk-sub {
+  font-size: 12px;
+  color: var(--fg-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.du-modem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.du-modem-card {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
+}
+
+.du-modem-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.du-modem-card.is-sel {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.du-modem-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.du-modem-rate {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.du-modem-year {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+}
+
+.du-modem-note {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--fg-dim);
+  margin-top: 4px;
+}
+
+/* ---------------- Terminal ---------------- */
+
+.du-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.du-term-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.du-term-head h3 {
+  margin: 0;
+}
+
+.du-line-state {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.du-screen {
+  background: #0c0a04;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 32px rgba(0, 0, 0, 0.55);
+  padding: 14px 16px;
+  height: 320px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.du-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.du-line-cmd {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.du-line-sys {
+  color: var(--fg-dim);
+}
+
+.du-line-bbs {
+  color: var(--accent);
+}
+
+.du-line-msg {
+  color: #9fd8c3;
+}
+
+.du-cursor {
+  animation: du-blink 1s steps(2, start) infinite;
+}
+
+@keyframes du-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .du-cursor {
+    animation: none;
+  }
+}
+
+/* Controls */
+
+.du-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.du-controls > .btn,
+.du-subcontrols {
+  align-self: flex-start;
+}
+
+.du-subcontrols {
+  display: flex;
+  gap: 8px;
+}
+
+.du-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+  letter-spacing: 0.04em;
+}
+
+.du-send-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+/* Message list */
+
+.du-msg-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.du-msg-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.du-msg-btn:hover {
+  border-color: var(--accent);
+}
+
+.du-msg-author {
+  color: var(--accent);
+  min-width: 80px;
+}
+
+.du-msg-subject {
+  color: var(--fg);
+}
+
+/* Post form */
+
+.du-post-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+}
+
+.du-post-input {
+  width: 100%;
+  background: #0c0a04;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.du-post-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ---------------- Milestones / facts ---------------- */
+
+.du-milestones h3,
+.du-facts h3 {
+  margin: 0 0 12px;
+}
+
+.du-mile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.du-mile-list li {
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.du-mile-year {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.du-mile-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.du-mile-detail {
+  color: var(--fg-dim);
+}
+
+.du-mile-list li.du-mile-out {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.du-facts ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.du-fact-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-dim);
+}
+
+.du-footnote {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--fg-dim);
+  border-left: 3px solid var(--panel-border);
+  padding-left: 14px;
+  margin: 0;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .du-grid {
+    grid-template-columns: 1fr;
+  }
+}

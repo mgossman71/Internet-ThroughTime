@@ -1,0 +1,300 @@
+/* ============================================================
+   1983 PROTOCOL SWITCH (exhibit 03) — era-specific styles.
+   Shared component styles (.era-head, .node-list, .send-row,
+   .log-terminal, .panel, …) are defined in arpanet.css and reused.
+   ============================================================ */
+
+.ps-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+}
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.ps-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ---------------- Map ---------------- */
+
+.ps-map {
+  display: flex;
+  flex-direction: column;
+}
+
+.ps-map-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 35% 45%, rgba(255, 166, 43, 0.06), transparent 60%),
+    radial-gradient(ellipse at 78% 25%, rgba(255, 166, 43, 0.05), transparent 45%),
+    rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.ps-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ps-node-layer {
+  position: absolute;
+  pointer-events: none;
+}
+
+.ps-node-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+}
+
+.ps-node-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--glow);
+  transition: transform 150ms ease;
+}
+
+.ps-node-btn:hover .ps-node-dot {
+  transform: scale(1.5);
+}
+
+.ps-node-btn.is-sel .ps-node-dot {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.ps-map-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+/* ---------------- Panel ---------------- */
+
+.ps-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ps-counts {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  color: var(--fg);
+}
+
+.ps-count {
+  font-size: 34px;
+  line-height: 1;
+  text-shadow: 0 0 18px var(--glow);
+}
+
+.ps-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.ps-flagday {
+  padding: 11px 18px;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.ps-flagday:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* NCP vs TCP/IP desk table */
+.ps-desk-table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ps-desk-head,
+.ps-desk-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 1fr;
+  gap: 8px;
+}
+
+.ps-desk-head {
+  letter-spacing: 0.18em;
+  color: var(--fg-dim);
+  font-size: 10px;
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 4px;
+}
+
+.ps-desk-row {
+  border-bottom: 1px solid var(--panel-border);
+  padding-bottom: 6px;
+}
+
+.ps-desk-aspect {
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  align-self: start;
+}
+
+/* Host list rows */
+.host-id {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--fg);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.host-id:hover {
+  color: var(--accent);
+}
+
+.proto-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--fg-dim);
+  color: var(--fg-dim);
+  white-space: nowrap;
+}
+
+.proto-badge.proto-tcpi {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.proto-badge.proto-exc {
+  border-color: #ff7a6e;
+  color: #ff9d94;
+  background: rgba(255, 122, 110, 0.12);
+}
+
+.proto-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-dim);
+  letter-spacing: 0.06em;
+}
+
+.ps-send-btn {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+/* ---------------- Milestones strip ---------------- */
+
+.ps-mile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.ps-mile-list li {
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 4px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ps-mile-year {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-dim);
+}
+
+.ps-mile-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg);
+}
+
+.ps-mile-detail {
+  color: var(--fg-dim);
+}
+
+.ps-mile-list li.is-past {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.ps-mile-list li.is-past .ps-mile-year {
+  color: var(--accent);
+}
+
+.ps-mile-list li.is-active {
+  border-color: #ff9d94;
+  box-shadow: 0 0 12px rgba(255, 122, 110, 0.25);
+}
+
+.ps-mile-list li.is-future {
+  opacity: 0.55;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+}

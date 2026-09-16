@@ -12,7 +12,7 @@ import type { InFlightPacket } from './useArpanetSim';
 import { useRaf } from '../../hooks/useRaf';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
-const PAD = 30; // px, must match .arpanet-map-stage padding in arpanet.css
+const PAD = 30; // px — must match the `inset` of the node hit-target layer below
 
 interface Props {
   online: Record<string, boolean>;
