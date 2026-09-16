@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)**)._
+_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (80/80, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (96/96, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -58,7 +58,26 @@ Playable today:
   claim is L-tagged (L1–L5) to `docs/SOURCES.md`. Built on a pure,
   unit-tested `linuxEngine` (state tracks `chapter`, `branch` (locked
   once chosen; REVISE rescinds it), `contributors`, `versionIdx`).
-- All other 6 eras render a styled "UNDER CONSTRUCTION" placeholder so the
+- **Portals, P2P & Search era (exhibit 07, 2000–2004)** — told in THREE
+  CHAPTERS around one fork, rendered in a period-style browser window:
+  CH 1 (2000) "The Front Door" — the portal home page (visible with zero
+  clicks: link grid, search box, blinking "NEW!" badge, hit counter — all
+  labeled illustrative) + the portal-as-home-page claims (P1) + the
+  dot-com bubble context (P2) + household adoption (P5); CH 2 (2001)
+  "Files Move" — a P2P share queue (FIND TRACK, capped at 5) + the fork:
+  HISTORY: THE RECORD LABELS WIN (Napster "shut down in July 2001",
+  Roxio $5.3M subscription relaunch, P3; Kazaa appears — "Napster lasted
+  just three years, Kazaa survived much longer", P4) vs. WHAT IF: THE
+  COURTS SIDE WITH NAPSTER (a LABELED HYPOTHETICAL — the queue keeps
+  growing); CH 3 (2004) "Meaning & Mail" — RUN SEARCH (capped at 4,
+  illustrative results) + Google IPO story (P6) + webmail: Hotmail 1996
+  (P8) → Gmail 2004, 1 GB (P7). Skipping to 2004 undecided gets a
+  recovery path back to the fork (or a quick call). A closing card ("WHAT
+  YOU SAW") + START OVER. Every claim is P-tagged (P1–P8) to
+  `docs/SOURCES.md`. Built on a pure, unit-tested `portalEngine` (state
+  tracks `chapter`, `branch` (locked once chosen; REVISE rescinds it),
+  `queue`, `searches`, `mailRead`).
+- All other 5 eras render a styled "UNDER CONSTRUCTION" placeholder so the
   timeline is navigable end-to-end.
 
 Global systems working: central timeline store, era theme switching (8
@@ -121,30 +140,32 @@ no autoplay, persisted mute), reduced-motion support, responsive layout.
 
 ## Current Work
 
-Exhibit 06 is now the **Linux, 1991–1996** era ("The Code Becomes a Commons"):
-the old 1993–1996 "Browsers & Personal Pages" era was fully removed
-(`src/simulations/earlyweb/`, `src/eras/early-web/`,
-`src/styles/eras/earlyweb.css` deleted), and a new three-chapter narrative
-took its slot in `eraList.ts` (`linux90s`, 1991–1996) and `eraRegistry.ts`
-(BUILT). New files: `src/simulations/linux90s/` (linuxData, linuxEngine +
-14 unit tests, useLinuxSim, LinuxTerminal) and `src/eras/linux90s/`
-(LinuxScene + 6 component tests) + `src/styles/eras/linux90s.css`. Claims
-verified 2026-09-16 → `docs/SOURCES.md` §L (L1–L5); the "KEEP IT CLOSED"
-fork is a LABELED HYPOTHETICAL; the terminal's patch-mail is a LABELED
-ILLUSTRATIVE recreation (scene footnote). Gates all green: `tsc -b` +
-`vite build`, `npm test` (80/80), and a 28/28 headless-Chrome CDP
-walkthrough of both fork branches + the skip-ahead recovery path
-(screenshot /tmp/linux90s-walkthrough.png, script /tmp/linux90s-walkthrough.mjs).
+Exhibit 07 is now the **Portals, P2P & Search** era (2000–2004):
+three chapters (2000 front door → 2001 Napster fork → 2004 search + mail)
+rendered in a period-style browser window, with the slot in `eraList.ts`
+(`portal2000s`, 2000–2004, theme-2000s) wired to the real scene in
+`eraRegistry.ts` (BUILT). New files: `src/simulations/portal2000s/`
+(portalData, portalEngine + 10 unit tests, usePortalSim, PortalBrowser)
+and `src/eras/portal2000s/` (PortalScene + 6 component tests) +
+`src/styles/eras/portal2000s.css`. Claims verified 2026-09-16 →
+`docs/SOURCES.md` §P (P1–P8); the "WHAT IF: the courts side with Napster"
+branch is a LABELED HYPOTHETICAL (real Napster was shut down July 2001,
+P3); all browser chrome (portal page, share queue, mock search results,
+inbox) is a LABELED ILLUSTRATIVE recreation (scene footnote). Gates all
+green: `tsc --noEmit`, `vite build`, `npm test` (96/96).
 
 ## Next Actions (prioritized)
 
-1. **Commit** current state (Phase 6 files, docs, registry).
-2. **Phase 7 — 2000s portal era** (`portal2000s`, next in `eraList.ts`
-   order, "Portals, P2P & Search"): broadband-era portals, P2P/file sharing,
-   and the rise of search (verify dates/claims first — see SOURCES.md "Other
-   eras"); any specific named services/pages are ILLUSTRATIVE recreations and
-   must be labeled as such.
-3. Later eras per plan; each phase ends at build+test green + checkpoint.
+1. ~~**Commit** current state (Phase 6 files, docs, registry).~~ — done.
+2. ~~**Phase 7 — 2000s portal era** (`portal2000s`)~~ — done (exhibit 07,
+   2000–2004, three chapters + Napster fork; claims P1–P8 in SOURCES.md;
+   named services/pages are ILLUSTRATIVE recreations, labeled as such).
+3. **Phase 8 — broadband2000s** (`broadband2000s`, 2005–2009, next in
+   `eraList.ts` order, "Broadband & the Open Web"): Wikipedia, YouTube,
+   and a network for everyone — verify dates/claims first → new section in
+   SOURCES.md ("Other eras") before any UI copy; named services/pages are
+   ILLUSTRATIVE recreations and must be labeled as such.
+4. Later eras per plan; each phase ends at build+test green + checkpoint.
 
 ## Known Issues
 
@@ -308,15 +329,18 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (80/80: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  (96/96: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
   switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
-  tests, 14 linuxEngine unit tests, 2 App smoke tests, 2 ArpanetScene
-  component tests, 3 Expansion70sScene component tests, 4 Tcpip1983Scene
-  component tests, 4 DialupScene component tests, 4 CernWebScene component
-  tests, 6 LinuxScene component tests covering the three-chapter visitor
-  arc (1991 announcement with zero clicks, 1992 fork decision both
-  branches, 1996 open-branch patch→release arc + closed-branch what-if,
-  skip-ahead recovery path, closing cards)).
+  tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 2 App smoke
+  tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
+  tests, 4 Tcpip1983Scene component tests, 4 DialupScene component tests,
+  4 CernWebScene component tests, 6 LinuxScene component tests covering
+  the three-chapter visitor arc (1991 announcement with zero clicks, 1992
+  fork decision both branches, 1996 open-branch patch→release arc +
+  closed-branch what-if, skip-ahead recovery path, closing cards), 6
+  PortalScene component tests covering the three-chapter visitor arc
+  (2000 portal with zero clicks, 2001 fork both branches + queue cap +
+  Kazaa beat, 2004 search + mail arc, skip-ahead recovery, closing cards)).
 - **Unverified**: real-browser visuals (canvas trails, node button
   alignment, SVG hop animation, expansion growth map: population dots +
   ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
@@ -339,24 +363,23 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (80 tests expected)
+npm test           # GATE: vitest (96 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. If not committed yet: `git add -A && git commit -m "Exhibit 06: Linux,
-   1991–1996 (The Code Becomes a Commons) replaces Browsers & Personal
-   Pages — three-chapter fork narrative — build+tests green (80/80)"`.
-2. Begin Phase 7 (2000s portal era, `portal2000s`, 1998–2005). Follow the
-   established pattern:
+1. Committed (Exhibit 07: Portals, P2P & Search, 2000–2004 — three-chapter
+   portal narrative + Napster fork — build+tests green (96/96)).
+2. Begin Phase 8 (broadband/open-web era, `broadband2000s`, 2005–2009).
+   Follow the established pattern:
    - Verify every claim → new section in `docs/SOURCES.md` (numbered tags)
      BEFORE writing any UI copy (see SOURCES.md "Other eras").
    - `src/simulations/<name>/` — pure data + pure logic (RNG/state injectable)
      + `.test.ts` (≥6 unit tests) + `use<Name>Sim.ts` hook + component(s).
    - `src/eras/<id>/<Scene>.tsx` + component tests (≥3, incl. one full user
      arc); `src/styles/eras/<era>.css` (theme `.theme-2000s` already exists).
-   - Add the scene to the registry `scenes` map + `portal2000s` to `BUILT`
-     in `src/app/eraRegistry.ts` once gated.
+   - Add the scene to the registry `scenes` map + `broadband2000s` to
+     `BUILT` in `src/app/eraRegistry.ts` once gated.
 3. Gate before moving on: `npm run build` + `npm test` green, then update
    this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.

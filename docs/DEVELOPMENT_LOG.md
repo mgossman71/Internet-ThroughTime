@@ -2,6 +2,67 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-16 — Exhibit 07: Portals, P2P & Search (2000–2004)
+
+**Decision (with user):** the `portal2000s` slot (2000–2004) becomes a
+three-chapter narrative rendered in a period-style browser window:
+CH 1 (2000) "The Front Door" (portal home page + dot-com bubble context),
+CH 2 (2001) "Files Move" (P2P share queue + the fork: HISTORY — the record
+labels win, Napster "shut down in July 2001" (P3), Kazaa survives "much
+longer" (P4) vs. WHAT IF — the courts side with Napster, a LABELED
+HYPOTHETICAL), CH 3 (2004) "Meaning & Mail" (search + Google IPO (P6);
+Hotmail 1996 (P8) → Gmail 1 GB 2004 (P7)).
+
+**Research (gate, all claims verbatim-verified 2026-09-16):**
+Wikipedia Web portal, Dot-com bubble, Napster, Kazaa, Internet in the US,
+History of Google, Gmail, Outlook.com (Hotmail). Corrected a planned
+error: Kazaa's FastTrack comes from BlueMoon (Jaan Tallinn) → Zennström
+& Friis, not from Shawn Fanning. Deliberately omitted: Hotmail's 2 MB
+mailbox size (unverified), user-count/market-share figures, the exact
+RIAA filing date (UI uses the verified "shut down in July 2001" wording).
+→ `docs/SOURCES.md` "Portals, P2P & Search (exhibit 07)" (P1–P8) +
+"Other eras" placeholder updated.
+
+**Built:**
+- `src/simulations/portal2000s/portalData.ts` — chapters (kicker/story/
+  takeaway/tag), branch defs (one `hypothetical: true`), per-chapter
+  P-tagged facts, illustrative pools (track names, mock results, inbox,
+  link grid — no real brands in the chrome).
+- `src/simulations/portal2000s/portalEngine.ts` — pure reducer:
+  SET_CHAPTER (free), CHOOSE_BRANCH (once, after 2000; recoverable from
+  2004), QUEUE_FILE (2001 only, cap 5), RUN_SEARCH (2004 only, cap 4),
+  READ_MAIL (2004 only, once), RECONSIDER, RESET; illegal actions are
+  no-ops returning the same state; `note` drives the live region.
+- `src/simulations/portal2000s/portalEngine.test.ts` — 10 unit tests.
+- `src/simulations/portal2000s/usePortalSim.ts` — hook wiring state +
+  `sound.uiTick/relayClick/keyClick` (SoundManager singleton).
+- `src/simulations/portal2000s/PortalBrowser.tsx` — the artifact window:
+  2000 portal page (link grid, search box, "NEW!" badge, hit counter —
+  all labeled illustrative), 2001 share client (queue + FIND TRACK +
+  branch status: frozen/CONNECTION LOST + Kazaa card vs. WHAT IF growing
+  queue), 2004 search + mail panes (RUN SEARCH, OPEN INBOX) + undecided
+  recovery card.
+- `src/eras/portal2000s/PortalScene.tsx` — stepper, chapter card, 2001
+  fork card (Decision recorded + REVISE DECISION), 2004 undecided
+  recovery card, closing card (branch line + START OVER), per-chapter
+  FACTS (SOURCE-VERIFIED), simplified-simulation footnote.
+- `src/eras/portal2000s/PortalScene.test.tsx` — 6 component tests
+  (2000 zero-click, 2001 history branch + queue cap + Kazaa, 2001
+  WHAT IF labeled, 2004 search+mail arc, skip-to-2004 recovery, closing
+  + facts + footnote).
+- `src/styles/eras/portal2000s.css` — `p2k-` styles on the existing
+  tokens (`.theme-2000s` accent #ff7a2f); blinking "NEW!" badge +
+  track-fill transitions disabled under `prefers-reduced-motion`;
+  single-column below 860px.
+- `src/app/eraRegistry.ts` — `portal2000s: PortalScene` + BUILT.
+
+**Gates:** `tsc --noEmit` exit 0; `npm test` 96/96 green (15 files);
+`npm run build` green (dist CSS 44.24 kB / JS 261.52 kB).
+
+**Known gaps:** real-browser visual pass (queue bars, badge blink,
+panel alignment at all viewports) not yet verified in Chrome; audio
+output untested on hardware.
+
 ## 2026-09-16 — Exhibit 06 REPLACED: Linux, 1991–1996 ("The Code Becomes a Commons")
 
 **Decision (with user):** the 1993–1996 "Browsers & Personal Pages" era is

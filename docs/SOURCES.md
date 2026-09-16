@@ -165,10 +165,36 @@ exact month of the 2.0 release (the UI says "1996").
 
 ---
 
+## Portals, P2P & Search (exhibit 07) — 2000–2004
+
+Verified 2026-09-16 against live article text. Three chapters (2000 → 2001 → 2004); the 2001 fork offers the history path (labels win) and a **LABELED HYPOTHETICAL** ("WHAT IF" — courts side with Napster). Portal chrome (hit counter, "NEW!" badge, link grid), the mock share queue, mock search results, and the mock inbox are **ILLUSTRATIVE** recreations, labeled in the scene footnote.
+
+| # | Claim (as shown in UI) | Source | Notes |
+|---| --- | --- | --- |
+| P1 | "A web portal is a specially designed website that provides information from a variety of sources in one place." + "for many users they served as the starting point of their web browsing if set as their home page" + US portals incl. Excite, Lycos, MSN, Yahoo! + "The term 'portal' emerged in the late 1990s" | Wikipedia "Web portal" — https://en.wikipedia.org/wiki/Web_portal | Backs CH 1 portal artifact + portal list. |
+| P2 | Nasdaq "peaked on March 10, 2000"; "fall 78% from its peak" (by October 2002); collapse of Pets.com, Webvan, WorldCom | Wikipedia "Dot-com bubble" — https://en.wikipedia.org/wiki/Dot-com_bubble | Backs the 2000 "bubble context" card. |
+| P3 | Napster 1999, Fanning & Parker, June 1999; "shut down in July 2001 and filed for bankruptcy in June 2002"; Roxio acquired IP Nov 2002 for $5.3M, relaunched as subscription; "as much as 61% of external network traffic consisted of MP3 file transfers" (dorms) | Wikipedia "Napster" — https://en.wikipedia.org/wiki/Napster | Backs CH 2 history branch (shutdown + relaunch); 61% used once as flavor. |
+| P4 | Kazaa: BlueMoon (Jaan Tallinn) → Zennström & Friis; "introduced … in March 2001"; "While Napster lasted just three years, Kazaa survived much longer"; $100M settlement (FastTrack/Joltid/Sharman) | Wikipedia "Kazaa" — https://en.wikipedia.org/wiki/Kazaa | Backs CH 2 "the network lives on" beat. NOT attributed to Shawn Fanning (common error). |
+| P5 | "In 2001, half of U.S. households had internet access." | Wikipedia "Internet in the United States" — https://en.wikipedia.org/wiki/Internet_in_the_United_States | Backs the CH 1 adoption line. |
+| P6 | Google "officially launched in 1998 by Larry Page and Sergey Brin"; "settled at Mountain View in 2003 … making its initial public offering in 2004"; "Google is a misspelling of the word Googol" | Wikipedia "History of Google" — https://en.wikipedia.org/wiki/History_of_Google | Backs the CH 3 search panel. |
+| P7 | Gmail "launched as a beta version in 2004. It went out of beta in 2009" (author Paul Buchheit); "early adoption of Ajax"; "On April 1, 2004, Gmail was launched with one gigabyte (GB) of storage space, a significantly higher amount than competitors offered at the time." | Wikipedia "Gmail" — https://en.wikipedia.org/wiki/Gmail | Backs the CH 3 mail panel. |
+| P8 | Hotmail "launched on July 4, 1996" (Smith & Bhatia); "In 1997, Microsoft acquired Hotmail for a reported $400 million and rebranded it as MSN Hotmail"; 1999: "From Zero to 30 Million Members in 30 Months" | Wikipedia "Outlook.com" (Hotmail section) — https://en.wikipedia.org/wiki/Outlook.com | Backs the CH 3 mail panel. |
+
+**Deliberately omitted (could not verify or is illustrative, 2026-09-16):**
+Napster's exact RIAA filing date (the UI uses the verified "shut down in
+July 2001" wording); Hotmail's original 2 MB mailbox size (the Gmail 1 GB
+contrast uses "significantly higher than competitors"); Kazaa/Napster
+user-count figures and portal market-share percentages (unverified); the
+"WHAT IF courts side with Napster" branch is labeled speculation, not a
+sourced claim (no P-tag).
+
+---
+
 ## Other eras
 
 _No claims recorded yet — add entries here before writing UI copy for:
-portal2000s, broadband2000s, mobile2010s, infrastructure (submarine cables —
+broadband2000s, cloud2000s, social2010s, infrastructure (submarine cables —
 use a reputable dataset, e.g. Telegeography/OpenSubmap), and the speculative
-future section. (linux90s 1991–1996 is now recorded in the "Linux, 1991–1996
-(exhibit 06)" section above.)_
+future section. (linux90s 1991–1996 is recorded in the "Linux, 1991–1996
+(exhibit 06)" section; portal2000s 2000–2004 in the "Portals, P2P & Search
+(exhibit 07)" section above.)_
