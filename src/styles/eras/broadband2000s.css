@@ -1,0 +1,509 @@
+/* ============================================================
+   EXHIBIT 08 — BROADBAND & THE OPEN WEB (2005–2009)
+   Left: chapters + interactive panels. Right: period-style
+   open-web window (encyclopedia → upload queue → line status).
+   Shared tokens come from base.css + themes.css (.theme-2000s).
+   ============================================================ */
+
+.bw-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.bw-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(320px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.bw-left {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- chapter desk ---------- */
+
+.bw-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.bw-step {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.bw-step:hover {
+  border-color: var(--accent);
+}
+
+.bw-step-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.bw-step-kicker {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+}
+
+.bw-step-title {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* ---------- cards ---------- */
+
+.bw-card {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bw-kicker {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.bw-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.bw-story {
+  margin: 0;
+  color: var(--fg);
+  line-height: 1.55;
+}
+
+.bw-takeaway {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 13px;
+}
+
+.bw-tag {
+  color: var(--accent);
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.bw-panel-h {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.bw-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-dim);
+}
+
+.bw-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.bw-facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bw-facts li {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.bw-footnote {
+  margin: 0;
+  font-size: 11px;
+  color: var(--fg-dim);
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+
+/* ---------- buttons ---------- */
+
+.bw-btn {
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--fg);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bw-btn:hover:not(:disabled) {
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.bw-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.bw-btn-small {
+  padding: 6px 8px;
+  font-size: 11px;
+}
+
+.bw-btn-ghost {
+  background: transparent;
+}
+
+.bw-btn-whatif {
+  border-style: dashed;
+}
+
+/* ---------- fork ---------- */
+
+.bw-fork {
+  display: grid;
+  gap: 10px;
+}
+
+.bw-fork-opt {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.bw-fork-opt:hover {
+  border-color: var(--accent);
+}
+
+.bw-fork-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.bw-fork-whatif {
+  border-style: dashed;
+}
+
+.bw-fork-name {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+
+.bw-fork-sub {
+  font-size: 11px;
+  color: var(--fg-dim);
+  line-height: 1.4;
+}
+
+.bw-forkmini {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bw-forkmini-h {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.bw-forkmini-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+/* ---------- browser-window artifact ---------- */
+
+.bw-window {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.bw-chrome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bw-chrome-dots {
+  color: var(--fg-dim);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.bw-chrome-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-dim);
+}
+
+.bw-body {
+  padding: 16px;
+}
+
+.bw-pane-h {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+.bw-pane-sub {
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-dim);
+  line-height: 1.5;
+}
+
+.bw-bubble {
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-dim);
+  border-top: 1px dashed var(--panel-border);
+  padding-top: 8px;
+}
+
+/* 2005 — the free encyclopedia */
+
+.bw-wiki {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bw-article {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bw-article h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+}
+
+.bw-article p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-dim);
+}
+
+.bw-edithistory {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.bw-edithistory strong {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+/* 2007 + 2009 — queue / line-status rows */
+
+.bw-video,
+.bw-line {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bw-queue,
+.bw-linestatus {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bw-queue-empty {
+  font-size: 12px;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.bw-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.bw-track-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bw-track-bar {
+  height: 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bw-track-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.bw-track-off {
+  opacity: 0.6;
+}
+
+.bw-track-off .bw-track-fill {
+  background: var(--fg-dim);
+}
+
+.bw-track-size {
+  color: var(--fg-dim);
+}
+
+.bw-status {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+
+.bw-status-frozen {
+  color: #ff6b6b;
+}
+
+.bw-status-grown {
+  color: var(--accent);
+}
+
+.bw-status-wait {
+  color: var(--fg-dim);
+}
+
+.bw-status-tag {
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+}
+
+.bw-status-dialup {
+  color: #ff9f6b;
+}
+
+.bw-status-broadband {
+  color: var(--accent);
+}
+
+.bw-status-future {
+  color: var(--fg-dim);
+  border-style: dashed;
+}
+
+.bw-kazaa {
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--accent-soft);
+}
+
+.bw-kazaa-h {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.bw-kazaa p:last-child {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---------- motion + responsive ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bw-track-fill {
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .bw-grid {
+    grid-template-columns: 1fr;
+  }
+}

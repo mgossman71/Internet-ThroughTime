@@ -190,11 +190,46 @@ sourced claim (no P-tag).
 
 ---
 
+## Broadband & the Open Web (exhibit 08) — 2005–2009
+
+Verified 2026-09-16 against live article text. Three chapters (2005 → 2007 → 2009); the 2007 fork offers the history path (open uploads + copyright fights) and a **LABELED HYPOTHETICAL** ("WHAT IF" — licensed-only uploads). The mock article pane, edit-history lines, upload queue, and line-status panel are **ILLUSTRATIVE** recreations, labeled in the scene footnote.
+
+| # | Claim (as shown in UI) | Source | URL | Notes |
+|---| --- | --- | --- | --- |
+| B1 | "Nupedia was a multi-language online encyclopedia whose articles were written by volunteer contributors with relevant subject-matter expertise, reviewed by expert editors before publication, and licensed as free content… It was founded by Jimmy Wales and underwritten by Bomis, with Larry Sanger as editor-in-chief." + "Nupedia operated from March 2000 until September 2003." | Wikipedia "Nupedia" — https://en.wikipedia.org/wiki/Nupedia | Backs CH 1 "the slow encyclopedia" (founding + lifespan). |
+| B2 | "Nupedia had a seven-step approval process to control content of articles before being posted, rather than live wiki-based updating." + "It had 21 articles in its first year, compared with Wikipedia having 200 articles in the first month, and 18,000 in the first year." + "Unlike Wikipedia, Nupedia was not a wiki; it was instead characterized by an extensive peer-review process…" | Wikipedia "Nupedia" | Backs the CH 1 Nupedia-vs-Wikipedia speed contrast. |
+| B3 | "…is a free online encyclopedia written and maintained by a community of volunteers… Founded by [Jimmy Wales] and [Larry Sanger] in 2001, Wikipedia has been hosted since 2003 by the [Wikimedia Foundation], an American [non-profit] funded mainly by donations from readers." (bracketed words are wikilink targets stripped from the extract) | Wikipedia "Wikipedia" (lead) — https://en.wikipedia.org/wiki/Wikipedia | Backs CH 1 framing (open editing, non-profit). |
+| B4 | "Nupedia and Wikipedia coexisted until the former's servers were taken down permanently in 2003, and its text was incorporated into Wikipedia." | Wikipedia "Wikipedia" (History → Nupedia) | Backs the CH 1 "Nupedia is gone" beat. |
+| B5 | "…passed the mark of 2 million articles on September 9, 2007, making it the largest encyclopedia ever assembled" + "The [English] edition reached 3 million articles in August 2009." | Wikipedia "Wikipedia" (Milestones) | Backs the CH 3 scale strip. |
+| B6 | "Around 1,800 articles were added daily to the encyclopedia in 2006" | Wikipedia "Wikipedia" (growth) | Backs the CH 1 edit-pace flavor line (2006). |
+| B7 | "[Wikipedia and Britannica] were compared to professional and peer-reviewed sources in a 2005 *Nature* study" — Giles, "Internet encyclopaedias go head to head: Jimmy Wales' Wikipedia comes close to Britannica in terms of the accuracy of its science entries" (*Nature* 438: 900–901, 2005) | Wikipedia "Reliability of Wikipedia" — https://en.wikipedia.org/wiki/Reliability_of_Wikipedia | Backs the CH 1 Nature-study card. |
+| B8 | The study's conclusion, as quoted in the article: "Wikipedia corrects the vast majority of errors within minutes, but if they're not spotted within the first day t[hey…]" (the article elides the rest of the quote) | Wikipedia "Reliability of Wikipedia" | Backs the CH 1 "corrections" annotation. |
+| B9 | "In May 2005, a user edited the [Wikipedia] article on [Barry Seigenthaler] so that it contained several false and [defamatory] statements" + "The inaccurate claims went unnoticed between May and September 2005 when they were discovered by [a friend of Seigenthaler]." | Wikipedia "Reliability of Wikipedia" (notable incidents) | Backs the CH 1 Seigenthaler beat (use only the verified fragments). |
+| B10 | "YouTube was founded on February 14, 2005, by Chad Hurley, Jawed Karim, and Steve Chen who were all former employees at PayPal." | Wikipedia "YouTube" (lead) — https://en.wikipedia.org/wiki/YouTube | Backs the CH 2 opening. |
+| B11 | "The first video was uploaded on April 23, 2005. Titled 'Me at the zoo', it shows co-founder Jawed Karim at the [San Diego Zoo] and can still be viewed on the site." | Wikipedia "YouTube" | Backs the CH 2 "first upload" beat. |
+| B12 | "On October 9, 2006, [Google] announced that they had acquired YouTube for $1.65 billion in Google stock." + "The deal was finalized on November 13, 2006." | Wikipedia "YouTube" | Backs the CH 2 acquisition card. |
+| B13 | "YouTube does not view videos before they are posted online, and it is left to copyright holders to issue [DMCA takedown notices]…" + "In June 2007, YouTube began trials of a system for automatic detection of uploaded videos that infringe copyright" (Content ID) + the 2011 Viacom suit that "nearly resulted in the discontinuation of the website" | Wikipedia "YouTube" (copyright) | Backs the CH 2 history branch (open uploads + copyright fights). The WHAT IF branch is a labeled hypothetical (no tag). |
+| B14 | "In September 2007, a majority of U.S. survey respondents reported having broadband internet at home." | Wikipedia "Internet in the United States" (lead) — https://en.wikipedia.org/wiki/Internet_in_the_United_States | Backs the CH 3 adoption line. |
+| B15 | "Around the start of the 21st century, most residential access was by dial-up… In subsequent years dial-up declined in favor of broadband access." + "Dial-up connections typically do not exceed a speed of 56 [kbit/s]" | Wikipedia "Internet in the United States" | Backs the CH 3 dial-up-vs-broadband panel. |
+| B16 | "The United States is widely perceived as falling behind in both its rate of broadband Internet penetration and the speed of its broadband infrastructure… [the] (FCC) did [adopt] a National Broadband Plan in [20]10, after first soliciting public comments from April 2009 through February 2010." + goal: "At least 100 million U.S. homes should have affordable access to actual download speeds of at least 100 megabits per second and actual upload speeds of at least 50 megabits per second by the year 2020." | Wikipedia "Internet in the United States" (National Broadband Plan section) | Backs the CH 3 FCC-plan card. The article dates the FCC action "March 2010"; the UI says "2010" only (a year-after beat — the era is 2005–2009). |
+
+**Deliberately omitted (could not verify or is illustrative, 2026-09-16):**
+the "4.5× more error-prone" Nature figure (widely cited, but not in the
+current article text — the UI quotes only the verified "corrects the vast
+majority of errors within minutes" fragment); any DMCA takedown-request
+counts (no verified numbers in the article); ADSL/cable as named
+technologies (the panel says DIAL-UP vs BROADBAND vs the 100 Mbps FCC goal
+instead); the exact FCC plan publication date (the UI says "2010");
+upload-queue progress bars, edit-history lines, and line-status values
+(illustrative chrome); and the "WHAT IF: licensed-only uploads" branch is
+labeled speculation, not a sourced claim (no B-tag).
+
 ## Other eras
 
 _No claims recorded yet — add entries here before writing UI copy for:
-broadband2000s, cloud2000s, social2010s, infrastructure (submarine cables —
-use a reputable dataset, e.g. Telegeography/OpenSubmap), and the speculative
-future section. (linux90s 1991–1996 is recorded in the "Linux, 1991–1996
-(exhibit 06)" section; portal2000s 2000–2004 in the "Portals, P2P & Search
-(exhibit 07)" section above.)_
+cloud2000s, social2010s, infrastructure (submarine cables — use a reputable
+dataset, e.g. Telegeography/OpenSubmap), and the speculative future section.
+(linux90s 1991–1996 is recorded in the "Linux, 1991–1996 (exhibit 06)"
+section; portal2000s 2000–2004 in the "Portals, P2P & Search (exhibit 07)"
+section; broadband2000s 2005–2009 in the "Broadband & the Open Web
+(exhibit 08)" section above.)_

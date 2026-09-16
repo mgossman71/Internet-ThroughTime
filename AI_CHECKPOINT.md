@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)**)._
+_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (96/96, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (113/113, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -77,7 +77,26 @@ Playable today:
   `docs/SOURCES.md`. Built on a pure, unit-tested `portalEngine` (state
   tracks `chapter`, `branch` (locked once chosen; REVISE rescinds it),
   `queue`, `searches`, `mailRead`).
-- All other 5 eras render a styled "UNDER CONSTRUCTION" placeholder so the
+- **Broadband & the Open Web era (exhibit 08, 2005–2009)** — told in THREE
+  CHAPTERS around one fork, rendered in a period-style open-web window:
+  CH 1 (2005) "The Encyclopedia Anyone Can Edit" — Nupedia's seven-step
+  review (21 articles in its first year) vs. Wikipedia's open editing
+  (18,000 in its first year; B1–B4), the 2005 Nature head-to-head (B7–B8),
+  the Seigenthaler case (B9); MAKE EDIT (capped at 6, illustrative edit
+  history). CH 2 (2007) "Everyone Has a Camera" — YouTube founding (B10),
+  "Me at the zoo" (B11), Google's $1.65B acquisition (B12) + the fork:
+  HISTORY: ANYONE CAN UPLOAD (DMCA-notice banner, Content ID trials
+  June 2007, Viacom 2011 — B13) vs. WHAT IF: LICENSED-ONLY UPLOADS (a
+  LABELED HYPOTHETICAL — the upload queue dims); UPLOAD VIDEO (capped at
+  6, echoes the 2001 share queue). CH 3 (2009) "A Network for Everyone" —
+  line status: dial-up (56k) → broadband (majority of U.S. households by
+  Sept 2007; B14–B15) → the FCC's 100 Mbps goal (B16); READ THE BROADBAND
+  PLAN (once); Wikipedia's scale: 2M articles Sept 9, 2007 → 3M Aug 2009
+  (B5). Skipping to 2009 undecided gets a recovery path back to the fork.
+  Every claim is B-tagged (B1–B16) to `docs/SOURCES.md`. Built on a pure,
+  unit-tested `broadbandEngine` (state tracks `chapter`, `branch` (locked
+  once chosen; REVISE rescinds it), `edits`, `uploads`, `planRead`).
+- All other 4 eras render a styled "UNDER CONSTRUCTION" placeholder so the
   timeline is navigable end-to-end.
 
 Global systems working: central timeline store, era theme switching (8
@@ -160,12 +179,15 @@ green: `tsc --noEmit`, `vite build`, `npm test` (96/96).
 2. ~~**Phase 7 — 2000s portal era** (`portal2000s`)~~ — done (exhibit 07,
    2000–2004, three chapters + Napster fork; claims P1–P8 in SOURCES.md;
    named services/pages are ILLUSTRATIVE recreations, labeled as such).
-3. **Phase 8 — broadband2000s** (`broadband2000s`, 2005–2009, next in
-   `eraList.ts` order, "Broadband & the Open Web"): Wikipedia, YouTube,
-   and a network for everyone — verify dates/claims first → new section in
-   SOURCES.md ("Other eras") before any UI copy; named services/pages are
-   ILLUSTRATIVE recreations and must be labeled as such.
-4. Later eras per plan; each phase ends at build+test green + checkpoint.
+3. ~~**Phase 8 — broadband2000s** (`broadband2000s`)~~ — done (exhibit 08,
+   2005–2009, three chapters + YouTube fork; claims B1–B16 in SOURCES.md;
+   article pane / edit history / upload queue / line-status panel are
+   ILLUSTRATIVE recreations, labeled as such).
+4. **Phase 9 — mobile2010s** (`mobile2010s`, 2010–2015, "Mobile & Cloud"):
+   verify dates/claims first → new section in SOURCES.md before any UI
+   copy; named services/apps are ILLUSTRATIVE recreations and must be
+   labeled as such.
+5. Later eras per plan; each phase ends at build+test green + checkpoint.
 
 ## Known Issues
 
@@ -329,10 +351,10 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (96/96: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  (113/113: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
   switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
-  tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 2 App smoke
-  tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
+  tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 11
+  broadbandEngine unit tests, 2 App smoke tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
   tests, 4 Tcpip1983Scene component tests, 4 DialupScene component tests,
   4 CernWebScene component tests, 6 LinuxScene component tests covering
   the three-chapter visitor arc (1991 announcement with zero clicks, 1992
@@ -340,7 +362,11 @@ Read in this order to resume:
   closed-branch what-if, skip-ahead recovery path, closing cards), 6
   PortalScene component tests covering the three-chapter visitor arc
   (2000 portal with zero clicks, 2001 fork both branches + queue cap +
-  Kazaa beat, 2004 search + mail arc, skip-ahead recovery, closing cards)).
+  Kazaa beat, 2004 search + mail arc, skip-ahead recovery, closing cards),
+  6 BroadbandScene component tests covering the three-chapter visitor arc
+  (2005 encyclopedia with zero clicks, 2007 fork both branches + upload
+  cap + DMCA/Viacom beat, 2009 line status + FCC plan + Wikipedia scale,
+  skip-ahead recovery, closing cards)).
 - **Unverified**: real-browser visuals (canvas trails, node button
   alignment, SVG hop animation, expansion growth map: population dots +
   ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
@@ -363,15 +389,16 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (96 tests expected)
+npm test           # GATE: vitest (113 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. Committed (Exhibit 07: Portals, P2P & Search, 2000–2004 — three-chapter
-   portal narrative + Napster fork — build+tests green (96/96)).
-2. Begin Phase 8 (broadband/open-web era, `broadband2000s`, 2005–2009).
+1. Committed (Exhibit 08: Broadband & the Open Web, 2005–2009 —
+   three-chapter open-web narrative + YouTube fork (history vs. labeled
+   WHAT IF) — build+tests green (113/113)).
+2. Begin Phase 9 (mobile/cloud era, `mobile2010s`, 2010–2015).
    Follow the established pattern:
    - Verify every claim → new section in `docs/SOURCES.md` (numbered tags)
      BEFORE writing any UI copy (see SOURCES.md "Other eras").

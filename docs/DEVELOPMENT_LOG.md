@@ -2,6 +2,72 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-16 — Exhibit 08: Broadband & the Open Web (2005–2009)
+
+**Decision (with user):** the `broadband2000s` slot (2005–2009) becomes a
+three-chapter narrative rendered in a period-style open-web window:
+CH 1 (2005) "The Encyclopedia Anyone Can Edit" (Nupedia's seven-step
+review vs. Wikipedia's open editing — 21 vs. 18,000 first-year articles;
+the 2005 Nature head-to-head; the Seigenthaler case), CH 2 (2007)
+"Everyone Has a Camera" (YouTube founding / "Me at the zoo" / Google's
+$1.65B acquisition; the fork: HISTORY — open uploads + DMCA takedown
+notices + Content ID trials June 2007 + Viacom 2011 (B13) vs. WHAT IF —
+licensed-only uploads, a LABELED HYPOTHETICAL), CH 3 (2009) "A Network
+for Everyone" (dial-up 56k → broadband majority by Sept 2007, B14–B15;
+the FCC National Broadband Plan, 2010, 100 Mbps for 100M homes by 2020,
+B16; Wikipedia 2M articles Sept 9, 2007 → 3M Aug 2009, B5).
+
+**Research (gate, all claims verbatim-verified 2026-09-16):**
+Wikipedia "Nupedia", "Wikipedia", "Reliability of Wikipedia", "YouTube",
+"Internet in the United States" (extracted from live wikitext).
+Deliberately omitted: the "4.5× more error-prone" Nature figure (not in
+the current article text — the UI quotes only the verified "corrects the
+vast majority of errors within minutes" fragment); DMCA takedown-request
+counts (no verified numbers); ADSL/cable as named technologies (the panel
+says DIAL-UP vs BROADBAND vs the FCC goal instead); the exact FCC plan
+publication date (the UI says "2010"). → `docs/SOURCES.md` "Broadband &
+the Open Web (exhibit 08)" (B1–B16) + "Other eras" placeholder updated.
+
+**Built:**
+- `src/simulations/broadband2000s/broadbandData.ts` — chapters
+  (kicker/story/takeaway/tag), branch defs (one `hypothetical: true`),
+  per-chapter B-tagged facts, illustrative pools (edit-history lines,
+  upload queue, line-status rows — all labeled illustrative).
+- `src/simulations/broadband2000s/broadbandEngine.ts` — pure reducer:
+  SET_CHAPTER (free), CHOOSE_BRANCH (once, after 2005; recoverable from
+  2009), MAKE_EDIT (2005 only, cap 6), UPLOAD_VIDEO (2007 only, cap 6),
+  READ_PLAN (2009 only, once), RECONSIDER, RESET; illegal actions are
+  no-ops returning the same state; `note` drives the live region.
+- `src/simulations/broadband2000s/broadbandEngine.test.ts` — 11 unit tests.
+- `src/simulations/broadband2000s/useBroadbandSim.ts` — hook wiring state
+  + `sound.uiTick/relayClick/keyClick` (SoundManager singleton).
+- `src/simulations/broadband2000s/OpenWebBrowser.tsx` — the artifact
+  window: 2005 encyclopedia (example article + MAKE EDIT + illustrative
+  edit history + Nature/Seigenthaler/Nupedia annotations), 2007 video
+  site (UPLOAD VIDEO queue with progress bars echoing the 2001 share
+  queue; DMCA-notice banner + "THE FIGHT KEEPS GOING" card vs. the dimmed
+  licensed-only queue), 2009 line status (DIAL-UP/BROADBAND/FCC-goal rows
+  + READ THE BROADBAND PLAN + Wikipedia scale bubbles).
+- `src/eras/broadband2000s/BroadbandScene.tsx` — stepper, chapter card,
+  2007 fork card (Decision recorded + REVISE DECISION), 2009 undecided
+  recovery card, closing card (branch line + START OVER), per-chapter
+  FACTS (SOURCE-VERIFIED), simplified-simulation footnote.
+- `src/eras/broadband2000s/BroadbandScene.test.tsx` — 6 component tests
+  (2005 zero-click, 2007 history branch + upload cap + DMCA/Viacom, 2007
+  WHAT IF labeled, 2009 line-status + FCC plan + scale arc, skip-to-2009
+  recovery, closing + facts + footnote).
+- `src/styles/eras/broadband2000s.css` — `bw-` styles on the existing
+  tokens (`.theme-2000s`); track-fill transitions disabled under
+  `prefers-reduced-motion`; single-column below 860px.
+- `src/app/eraRegistry.ts` — `broadband2000s: BroadbandScene` + BUILT.
+
+**Gates:** `tsc --noEmit` exit 0; `npm test` 113/113 green (17 files);
+`npm run build` green (dist CSS 50.35 kB / JS 280.84 kB).
+
+**Known gaps:** real-browser visual pass (queue bars, line-status rows,
+panel alignment at all viewports) not yet verified in Chrome; audio
+output untested on hardware.
+
 ## 2026-09-16 — Exhibit 07: Portals, P2P & Search (2000–2004)
 
 **Decision (with user):** the `portal2000s` slot (2000–2004) becomes a

@@ -17,6 +17,7 @@ import { DialupScene } from '../eras/dialup/DialupScene';
 import { CernWebScene } from '../eras/cern-web/CernWebScene';
 import { LinuxScene } from '../eras/linux90s/LinuxScene';
 import { PortalScene } from '../eras/portal2000s/PortalScene';
+import { BroadbandScene } from '../eras/broadband2000s/BroadbandScene';
 import { EraPlaceholder } from '../components/EraPlaceholder';
 
 const scenes: Record<string, EraDescriptor['Scene']> = {
@@ -29,7 +30,8 @@ const scenes: Record<string, EraDescriptor['Scene']> = {
   linux90s: LinuxScene,
   // Remaining eras use the placeholder until built (see AI_CHECKPOINT.md):
   portal2000s: PortalScene,
-  broadband2000s: EraPlaceholder,
+  // Built eras:
+  broadband2000s: BroadbandScene,
   mobile2010s: EraPlaceholder,
   infrastructure: EraPlaceholder,
   'ai-era': EraPlaceholder,
@@ -45,6 +47,7 @@ const BUILT = new Set([
   'cern-web',
   'linux90s',
   'portal2000s',
+  'broadband2000s',
 ]);
 
 export const eraRegistry: EraDescriptor[] = ERA_LIST.map((data) => ({
