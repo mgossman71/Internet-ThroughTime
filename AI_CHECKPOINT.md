@@ -144,16 +144,18 @@ Playable today:
   unit-tested `aiEngine` (state tracks `chapter`, `branch` (locked once
   chosen; REVISE rescinds it), `asks`, `modelLoaded`, `frontierOpen`).
 - **The Road Ahead (speculative, beyond 2026)** — NOT a historical record
-  and NOT a prediction: a menu of three open questions (Who acts? / Where
-  does it live? / What does it reach?), each with two labeled FORECASTS the
-  visitor can lean toward and freely switch (a lean is NOT locked, unlike the
-  historical eras). Every forecast is an extrapolation of the verified
-  2025–2026 anchors (AI5/AI2/AI4) already in `docs/SOURCES.md`; the "why
-  it's open" is grounded in the verified agentic / on-device / multimodal
-  threads, and a "deliberately not asserted" list keeps it honest (no dates,
-  products, or AGI timeline). Reuses the existing `.theme-future` + the
-  CRTShell "SPECULATIVE SECTION" banner. Built on a pure, unit-tested
-  `futureEngine` (state tracks a per-question `lean`; `leanedCount`).
+  and NOT a prediction: a three-act STORY (not a widget). Act I = "where we
+  are" (verified, CURRENT as of Sept 2026); Act II = the three in-progress
+  threads (AGENCY / ON-DEVICE / MULTIMODAL), each openable to "what it means
+  for you"; Act III = the reader picks a slice of life (get somewhere / make a
+  meal / keep a record) and reads it "today → where the threads point" (a
+  labeled FORECAST); plus one optional personal reflection and a "deliberately
+  not asserted" list. NO locked fork and NO scoreboard/tally (the earlier
+  lean-board was replaced). Every forward-looking line is an extrapolation of
+  the verified 2025–2026 anchors (AI5/AI2/AI4) already in `docs/SOURCES.md`.
+  Built on a pure, unit-tested `futureEngine` (state tracks `revealed`,
+  `slice`, `trajectoryShown`, `reflection`). Reuses `.theme-future` + the
+  CRTShell "SPECULATIVE SECTION" banner.
 
 Global systems working: central timeline store, era theme switching (8
 themes), CRT shell (scanlines/vignette), synthesized sound (off by default,

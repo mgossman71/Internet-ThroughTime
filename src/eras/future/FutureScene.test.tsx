@@ -1,81 +1,55 @@
-import { describe, expect, it } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { FutureScene } from "./FutureScene";
+import { SLICES, THREADS } from "../../simulations/future/futureData";
 
-describe("FutureScene (speculative 'Road Ahead')", () => {
-  const anyText = (re: RegExp) =>
-    screen
-      .queryAllByText(re)
-      .some((n) => n.textContent && re.test(n.textContent));
-
-  it("opens on the speculative framing with verified anchors", () => {
+describe("FutureScene (Road Ahead story)", () => {
+  it("renders the lede and Act I with verified anchors", () => {
     render(<FutureScene />);
-    expect(anyText(/THE ROAD AHEAD/i)).toBe(true);
-    expect(anyText(/NOT a historical record|NOT A HISTORICAL/i)).toBe(true);
-    expect(anyText(/VERIFIED ANCHORS/i)).toBe(true);
-    expect(anyText(/\[AI5\]/)).toBe(true);
-    expect(anyText(/SPECULATIVE SECTION/i)).toBe(true);
+    expect(screen.getAllByText(/SPECULATIVE SECTION/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/Where AI Is Taking the Internet/i)).toBeTruthy();
+    expect(screen.getAllByText(/CURRENT as of September 2026/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("shows the three open questions, each with two forecasts, none leaned at first", () => {
+  it("shows the three threads; opening one reveals 'what it means for you'", () => {
     render(<FutureScene />);
-    expect(anyText(/WHO ACTS\?/i)).toBe(true);
-    expect(anyText(/WHERE DOES IT LIVE\?/i)).toBe(true);
-    expect(anyText(/WHAT DOES IT REACH\?/i)).toBe(true);
-    const agents = screen.getByRole("button", { name: /AGENTS ACT FOR YOU/i });
-    expect(agents).toBeInTheDocument();
-    expect(agents.getAttribute("aria-pressed")).toBe("false");
-    expect(anyText(/0\/3 leaned/i)).toBe(true);
+    const btn = screen.getByRole("button", { name: "Thread: AGENCY" });
+    expect(btn).toHaveAttribute("aria-pressed", "false");
+    fireEvent.click(btn);
+    expect(btn).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByText(/WHAT IT MEANS FOR YOU/i)).toBeTruthy();
   });
 
-  it("leans a question, reveals the forecast, and lets you switch your mind", () => {
+  it("hides the forecast until the reader follows the threads after picking a slice", () => {
     render(<FutureScene />);
-    const agents = screen.getByRole("button", { name: /AGENTS ACT FOR YOU/i });
-    fireEvent.click(agents);
-    expect(agents.getAttribute("aria-pressed")).toBe("true");
-    expect(anyText(/WHAT THAT WOULD MEAN/i)).toBe(true);
-    expect(anyText(/A forecast/i)).toBe(true);
-
-    // change your mind — a lean is not locked (unlike the historical forks)
-    fireEvent.click(screen.getByRole("button", { name: /YOU STAY IN THE LOOP/i }));
-    expect(
-      screen
-        .getByRole("button", { name: /YOU STAY IN THE LOOP/i })
-        .getAttribute("aria-pressed"),
-    ).toBe("true");
-    expect(
-      screen
-        .getByRole("button", { name: /AGENTS ACT FOR YOU/i })
-        .getAttribute("aria-pressed"),
-    ).toBe("false");
+    fireEvent.click(screen.getByRole("button", { name: SLICES[0].label }));
+    expect(screen.getByText(/HOW IT IS TODAY/i)).toBeTruthy();
+    // the forecast is not shown yet
+    expect(screen.queryByText(/WHERE THE THREADS POINT/i)).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /FOLLOW THE THREE THREADS/i }));
+    expect(screen.getByText(/WHERE THE THREADS POINT/i)).toBeTruthy();
   });
 
-  it("reflects each lean on the FORECAST BOARD and tallies it", () => {
+  it("records the optional reflection as a personal lean, not a fact", () => {
     render(<FutureScene />);
-    expect(anyText(/FORECAST BOARD/i)).toBe(true);
-    expect(anyText(/0\/3 leaned/i)).toBe(true);
-    fireEvent.click(
-      screen.getByRole("button", { name: /IT'S EVERYWHERE, INVISIBLE/i }),
+    fireEvent.click(screen.getByRole("button", { name: "Bet: MULTIMODAL" }));
+    expect(screen.getByText(/a personal lean, not a prediction/i)).toBeTruthy();
+  });
+
+  it("resets from the top", () => {
+    render(<FutureScene />);
+    const thread = screen.getByRole("button", { name: "Thread: AGENCY" });
+    fireEvent.click(thread);
+    expect(thread).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: /READ IT AGAIN FROM THE TOP/i }));
+    expect(thread).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("renders exactly three threads and three slices (no scoreboard)", () => {
+    render(<FutureScene />);
+    expect(screen.getAllByRole("button", { name: /^Thread: /i })).toHaveLength(THREADS.length);
+    expect(screen.getAllByRole("button", { name: /^Bet: /i })).toHaveLength(THREADS.length);
+    SLICES.forEach((s) =>
+      expect(screen.getByRole("button", { name: s.label })).toBeTruthy(),
     );
-    expect(anyText(/1\/3 leaned/i)).toBe(true);
-  });
-
-  it("leans all three and can clear them", () => {
-    render(<FutureScene />);
-    fireEvent.click(screen.getByRole("button", { name: /AGENTS ACT FOR YOU/i }));
-    fireEvent.click(
-      screen.getByRole("button", { name: /IT'S EVERYWHERE, INVISIBLE/i }),
-    );
-    fireEvent.click(screen.getByRole("button", { name: /ALL THE SENSES/i }));
-    expect(anyText(/3\/3 leaned/i)).toBe(true);
-    fireEvent.click(screen.getByRole("button", { name: /CLEAR MY LEANS/i }));
-    expect(anyText(/0\/3 leaned/i)).toBe(true);
-  });
-
-  it("lists what it deliberately does NOT assert", () => {
-    render(<FutureScene />);
-    expect(anyText(/DELIBERATELY NOT ASSERTED/i)).toBe(true);
-    expect(anyText(/No dates or timelines/i)).toBe(true);
-    expect(anyText(/No claim that AGI will/i)).toBe(true);
   });
 });

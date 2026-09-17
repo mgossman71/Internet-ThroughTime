@@ -315,23 +315,30 @@ is already here" branch (labeled a hypothetical — no AI-tag).
 ## The Road Ahead (speculative section, beyond 2026)
 
 **This section is NOT a historical record and NOT a prediction.** It is a
-menu of open questions, each with two labeled FORECASTS the visitor can lean
-toward and change. Every forecast is an extrapolation of the verified
-2025–2026 anchors recorded in "The AI Era (exhibit 11)" above (AI5, AI2,
-AI4) — nothing new is asserted, and no dates, products, or AGI timeline are
-claimed. UI copy cites only those anchor tags (AI1/AI2/AI4/AI5).
+three-act STORY (not a widget): Act I states "where we are" (verified, CURRENT
+as of September 2026); Act II presents the three in-progress threads (AGENCY,
+ON-DEVICE, MULTIMODAL), each openable to "what it means for you"; Act III lets
+the reader pick a slice of life and read it "today → where the threads point"
+(a labeled FORECAST). A closing "deliberately not asserted" list keeps it
+honest. Every forward-looking line is an extrapolation of the verified 2025–2026
+anchors recorded in "The AI Era (exhibit 11)" above (AI5, AI2, AI4) — nothing
+new is asserted, and no dates, products, or AGI timeline are claimed.
 
-| # | Open question | Why it's open (verified anchor) | Forecasts (both labeled "a forecast") |
+| # | Thread (verified today) | What it is (anchor) | Direction it points (a forward-reading, a forecast) |
 |---|---|---|---|
-| F1 | Who acts? | The wave is "agentic" (AI5); an LLM is a type of ML model (AI4). | AGENTS ACT FOR YOU / YOU STAY IN THE LOOP — extrapolations of the agentic thread (AI5; AI1, AI4). |
-| F2 | Where does it live? | The wave is "on-device" (AI5). | IT'S EVERYWHERE, INVISIBLE / BACK TO THE PERSONAL — extrapolations of on-device (AI5). |
-| F3 | What does it reach? | The wave is "multimodal" (AI5); GPT-4 accepts image input (AI2). | ALL THE SENSES / TEXT AND CODE — extrapolations of the multimodal thread (AI5, AI2). |
+| T1 | AGENCY | the wave is "agentic" (AI5); an LLM is a type of ML model (AI4). | you state the goal; the interface runs the steps and hands back the result. |
+| T2 | ON-DEVICE | the wave is "on-device" (AI5). | the internet recedes toward a local capability — less "going online," more "it just knows." |
+| T3 | MULTIMODAL | the wave is "multimodal" (AI5); GPT-4 accepts image input (AI2). | the interface stops being only words — you can point at the world. |
+
+Act III forecast slices (each a "today → where the threads point" read, all
+labeled forecasts, grounded in AI5/AI2/AI4): GET SOMEWHERE · MAKE A MEAL · KEEP
+A RECORD.
 
 **Deliberately NOT asserted (2026-09-17):** no dates or timelines; no named
 future products or companies; no claim that AGI will (or won't) arrive, or
-when; no specific technology named as the "winner"; and no forecast stated as
-settled fact. The "forecast" text in the UI is illustrative extrapolation,
-labeled as such in every case.
+when; no forecast stated as settled fact; the "today" steps are a general
+picture of current web use, not unverifiable facts. The "forecast" text is
+illustrative extrapolation, labeled as such in every case.
 
 ## Other eras
 

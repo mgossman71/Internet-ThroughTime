@@ -2,7 +2,30 @@
 
 Short dated entries for significant work. Newest first.
 
-## 2026-09-17 — The Road Ahead (speculative, beyond 2026) — ALL sections built
+## 2026-09-17 — The Road Ahead: lean board → three-act STORY (redesign)
+
+**Decision (with user):** the "Road Ahead" felt too much like a widget.
+Redesigned from the lean-the-board "frontier scoreboard" into a three-act
+narrative (now → three real threads → where they point) that still lets the
+reader drive it (open each thread; pick a slice of life and read it
+"today → forecast") but has NO locked fork, NO tally/scoreboard, and only one
+optional personal reflection ("if you had to bet on one, which?"). Same
+honesty rule: Act I + the three threads are verified (AI5/AI2/AI4); Act III is
+a labeled extrapolation; the "deliberately not asserted" list is kept.
+
+**Built (replaced):** `futureData.ts` (threads + slices + anchors + lede +
+deliberately-not list), `futureEngine.ts` (reveal / selectSlice / showTrajectory
+/ reflect / reset), `futureEngine.test.ts` (9), `useFutureSim.ts`,
+`FutureScene.tsx` (three-act story) + `FutureScene.test.tsx` (6), `future.css`
+(narrative layout). **Removed:** `FrontierBoard.tsx` (the scoreboard).
+`eraRegistry.ts` unchanged (still `future: FutureScene`).
+
+**Gates:** `npm test` 179/179 green; `npm run build` green (tsc -b + vite;
+121 modules).
+
+---
+
+## 2026-09-17 — The Road Ahead (speculative, beyond 2026) — ALL sections built _(superseded by the redesign above)_
 
 **Decision (with user):** the final tab ("The Road Ahead") becomes a real,
 clearly-marked SPECULATIVE section instead of the "UNDER CONSTRUCTION"

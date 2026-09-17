@@ -1,33 +1,42 @@
-/**
- * The "Road Ahead" (speculative) exhibit engine — a pure state machine.
- *
- * No React, no DOM, no timers, no Math.random. This era has NO canonical
- * fork: the visitor can lean toward either forecast on each open question
- * and change their mind freely (unlike the historical eras' locked branch).
- * Conventions (same as the other engines): illegal or no-op actions return
- * the SAME state object.
- */
-
-import { QUESTIONS, type QuestionId } from "./futureData";
-
-export type FutureAction =
-  | { type: "LEAN"; question: QuestionId; side: string }
-  | { type: "RESET" };
+import {
+  SLICES,
+  THREADS,
+  type SliceId,
+  type ThreadId,
+} from "./futureData";
 
 export interface FutureState {
-  /** the side the visitor is leaning toward per question (null = undecided). */
-  lean: Record<QuestionId, string | null>;
-  /** monotonic action counter (drives CSS/aria changes). */
+  /** Act II — which threads have their "what it means for you" revealed. */
+  revealed: Record<ThreadId, boolean>;
+  /** Act III — the slice of life selected (or null until the reader picks one). */
+  slice: SliceId | null;
+  /** Act III — whether the selected slice's forecast step is shown. */
+  trajectoryShown: boolean;
+  /** the optional personal reflection: which thread the reader would "bet on". */
+  reflection: ThreadId | null;
   seq: number;
-  /** last engine message (drives the scene's live region). */
   note: string;
+}
+
+export type FutureAction =
+  | { type: "REVEAL_THREAD"; thread: ThreadId }
+  | { type: "SELECT_SLICE"; slice: SliceId }
+  | { type: "SHOW_TRAJECTORY" }
+  | { type: "REFLECT"; thread: ThreadId }
+  | { type: "RESET" };
+
+function threadLabel(id: ThreadId): string {
+  return THREADS.find((t) => t.id === id)?.label ?? id;
 }
 
 export function createFutureState(): FutureState {
   return {
-    lean: { agentic: null, location: null, multimodal: null },
+    revealed: { agentic: false, ondevice: false, multimodal: false },
+    slice: null,
+    trajectoryShown: false,
+    reflection: null,
     seq: 0,
-    note: "The road ahead is open — lean toward a forecast for each question.",
+    note: "Three threads are already moving. Open each one to see where it points.",
   };
 }
 
@@ -36,16 +45,44 @@ export function futureEngine(
   action: FutureAction,
 ): FutureState {
   switch (action.type) {
-    case "LEAN": {
-      const q = QUESTIONS.find((x) => x.id === action.question);
-      const side = q?.sides.find((s) => s.id === action.side);
-      if (!q || !side) return state; // unknown question or side
-      if (state.lean[action.question] === action.side) return state; // idempotent
+    case "REVEAL_THREAD": {
+      if (!THREADS.some((t) => t.id === action.thread)) return state;
+      if (state.revealed[action.thread]) return state; // idempotent
       return {
         ...state,
-        lean: { ...state.lean, [action.question]: action.side },
+        revealed: { ...state.revealed, [action.thread]: true },
         seq: state.seq + 1,
-        note: `Leaned: ${side.label} — a forecast, not a prediction.`,
+        note: `Thread: ${threadLabel(action.thread)} — open.`,
+      };
+    }
+    case "SELECT_SLICE": {
+      if (!SLICES.some((s) => s.id === action.slice)) return state;
+      if (action.slice === state.slice) return state;
+      return {
+        ...state,
+        slice: action.slice,
+        trajectoryShown: false,
+        seq: state.seq + 1,
+        note: "Slice chosen. Read how you do it today — then follow the threads.",
+      };
+    }
+    case "SHOW_TRAJECTORY": {
+      if (!state.slice || state.trajectoryShown) return state;
+      return {
+        ...state,
+        trajectoryShown: true,
+        seq: state.seq + 1,
+        note: "Forecast shown — an extrapolation of the threads, not a prediction.",
+      };
+    }
+    case "REFLECT": {
+      if (!THREADS.some((t) => t.id === action.thread)) return state;
+      if (state.reflection === action.thread) return state; // idempotent
+      return {
+        ...state,
+        reflection: action.thread,
+        seq: state.seq + 1,
+        note: `Noted — you'd bet on ${threadLabel(action.thread)} (your read, not a fact).`,
       };
     }
     case "RESET":
@@ -53,9 +90,4 @@ export function futureEngine(
     default:
       return state;
   }
-}
-
-/** How many questions currently have a lean (0..QUESTIONS.length). */
-export function leanedCount(state: FutureState): number {
-  return QUESTIONS.reduce((n, q) => n + (state.lean[q.id] ? 1 : 0), 0);
 }
