@@ -224,12 +224,56 @@ upload-queue progress bars, edit-history lines, and line-status values
 (illustrative chrome); and the "WHAT IF: licensed-only uploads" branch is
 labeled speculation, not a sourced claim (no B-tag).
 
+## Mobile & Cloud (exhibit 09) — 2010–2015
+
+Verified 2026-09-17 against live article text. Three chapters (2010 →
+2012 → 2015); the 2012 fork offers the history path (the cloud wins) and
+a **LABELED HYPOTHETICAL** ("WHAT IF" — everything stays on the device).
+The phone screen (home screen, status bar, signal bars, sync queue, app
+queue) is an **ILLUSTRATIVE** recreation, labeled in the scene footnote.
+
+| # | Claim (as shown in UI) | Source | Notes |
+|---| --- | --- | --- |
+| M1 | "A smartphone is a mobile device that combines the functionality of a traditional mobile phone (feature phone) with advanced computing capabilities. It typically has a touchscreen interface, allowing users to access [the Internet]" | Wikipedia "Smartphone" (lead) — https://en.wikipedia.org/wiki/Smartphone | Backs CH 1 opening. |
+| M2 | "[The iPad] is a brand of tablet computers developed and marketed by Apple… The first-generation iPad was introduced on January 27, 2010." | Wikipedia "iPad" (lead) — https://en.wikipedia.org/wiki/IPad | Backs CH 1 tablet beat. |
+| M3 | "In telecommunications, Long Term Evolution (LTE) is a standard for wireless broadband communication for cellular mobile devices and data terminals. It is considered to be a 'transitional' 4G technology, and is therefore also referred to as 3.95G as a step above 3G." | Wikipedia "LTE (telecommunication)" (lead) — https://en.wikipedia.org/wiki/LTE_(telecommunication) | Backs CH 1 4G beat + the phone's signal panel. |
+| M4 | "The LTE standard was finalized in December 2008, and the first publicly available LTE service was launched by TeliaSonera in Oslo and Stockholm on December 14, 2009, as a data connection with a USB modem." | Wikipedia "LTE (telecommunication)" (Overview) | Backs the CH 1 "first public LTE service" bubble. |
+
+| M5 | "The mobile web comprises mobile browser-based World Wide Web services accessed from mobile devices, such as laptops, tablets, mobile phones… through a mobile or other wireless network." | Wikipedia "Mobile web" (lead) — https://en.wikipedia.org/wiki/Mobile_web | Backs the CH 1 mobile-web definition. |
+| M6 | "Prior to 2014, the World Wide Web was primarily accessed via fixed-line services by laptops and desktop computers. However, the convenience offered by (personal) mobile devices saw an aggressive shift in the user mix favoring mobile devices since then." | Wikipedia "Mobile web" (History and development) | Backs the CH 1 shift + the CH 3 "mobile now leads" beat. |
+| M7 | "In early 2010, ITU (International Telecommunication Union) reported that with current growth rates, web access by people on the go via laptops and smart mobile devices was likely to exceed web access from desktop computers within the following five years." | Wikipedia "Mobile web" (History and development) — citing the ITU 2010 press release | Backs the CH 1 2010 forecast + the CH 3 "the five-year window closes" beat. |
+| M8 | NIST (as quoted in the article): "On-demand self-service: 'A consumer can unilaterally provision computing capabilities, such as server time and network storage, as needed automatically without requiring human interaction with each service provider.'" | Wikipedia "Cloud computing" (essential characteristics) — https://en.wikipedia.org/wiki/Cloud_computing | Backs the CH 2 "what is a cloud" annotation. |
+| M9 | "iCloud is a personal cloud service run by Apple. Launched on October 12, 2011, iCloud enables users to store and sync data across devices, including Apple Mail, Apple Calendar, Apple Photos, Apple Notes, contacts, settings, backups, and files…" | Wikipedia "iCloud" (lead) — https://en.wikipedia.org/wiki/ICloud | Backs the CH 2 iCloud beat. |
+| M10 | "Google Drive is a file-hosting service and synchronization service developed by Google. Launched on April 24, 2012, Google Drive allows users to store files in the cloud (on Google servers), synchronize files across devices, and share files." | Wikipedia "Google Drive" (lead) — https://en.wikipedia.org/wiki/Google_Drive | Backs the CH 2 Drive beat + the history fork path. |
+
+| M11 | "Dropbox is a file hosting service operated by the American company Dropbox, Inc.… that offers cloud storage, file synchronization, personal cloud, and client software. Dropbox was founded in 2007 by MIT students Drew Houston and Arash Ferdowsi…" | Wikipedia "Dropbox" (lead) — https://en.wikipedia.org/wiki/Dropbox | Backs the CH 2 Dropbox beat. |
+| M12 | "[Spotify] is a Swedish freemium music streaming service provider founded in April 2006 by Daniel Ek and Martin Lorentzon." + "Conceived as a legal alternative to music piracy, the service launched in several European markets in October 2008 and in the United States in July 2011." | Wikipedia "Spotify" (lead + History) — https://en.wikipedia.org/wiki/Spotify | Backs the CH 2 "stream, don't buy" beat. |
+| M13 | "Launched in 2007, nearly a decade after Netflix, Inc. began its pioneering DVD-by-mail movie rental service, Netflix is the most-subscribed video on demand global streaming media service…" | Wikipedia "Netflix" (History) — https://en.wikipedia.org/wiki/Netflix | Backs the CH 2 "the mail-envelope era ends" beat. |
+| M14 | "The App Store is an app marketplace developed and maintained by Apple, for mobile apps and desktop apps on its iOS, macOS and iPadOS operating systems." + "The iPhone App Store opened on July 10, 2008." | Wikipedia "App Store (Apple)" (lead + History) — https://en.wikipedia.org/wiki/App_Store_(Apple) | Backs the CH 3 app-store beat. |
+| M15 | "Android Market was announced by Google on August 28, 2008" + "Also in March 2012, Android Market was re-branded as Google Play." | Wikipedia "Google Play" (History) — https://en.wikipedia.org/wiki/Google_Play | Backs the CH 3 two-store beat. |
+| M16 | "Global smartphone sales surpassed the sales figures for feature phones in early 2013." | Wikipedia "Smartphone" (market section) | Backs the CH 3 "the phone outsells the desk" beat. |
+
+**Deliberately omitted (could not verify or is illustrative, 2026-09-17):**
+the ITU's later "true 4G" IMT-Advanced designation (the article covers
+"transitional" 4G / 3.95G — the UI says "4G/LTE" only as era-name
+shorthand, not an ITU-certification claim); Google Drive's free-storage
+size (the current article cites the 15 GB tier; the UI claims no GB
+figure); the App Store's launch app count ("500 apps" appears only in
+citation titles, not article body); Google Play's "3.5 million apps"
+(2017 figure, outside the era); Spotify/Netflix subscriber counts (2022/
+2026 figures, outside the era); the phone's home-screen icons, status
+bar, signal bars, sync-queue rows, and app-queue rows (illustrative
+chrome); and the "WHAT IF: everything stays on the device" branch is
+labeled speculation, not a sourced claim (no M-tag).
+
 ## Other eras
 
 _No claims recorded yet — add entries here before writing UI copy for:
-cloud2000s, social2010s, infrastructure (submarine cables — use a reputable
-dataset, e.g. Telegeography/OpenSubmap), and the speculative future section.
+infrastructure (submarine cables — use a reputable dataset, e.g.
+Telegeography/OpenSubmap), and the speculative future section.
 (linux90s 1991–1996 is recorded in the "Linux, 1991–1996 (exhibit 06)"
 section; portal2000s 2000–2004 in the "Portals, P2P & Search (exhibit 07)"
 section; broadband2000s 2005–2009 in the "Broadband & the Open Web
-(exhibit 08)" section above.)_
+(exhibit 08)" section; mobile2010s 2010–2015 in the "Mobile & Cloud
+(exhibit 09)" section above — it subsumes the earlier "cloud2000s" and
+"social2010s" placeholders.)_

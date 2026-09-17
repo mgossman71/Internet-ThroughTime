@@ -18,6 +18,7 @@ import { CernWebScene } from '../eras/cern-web/CernWebScene';
 import { LinuxScene } from '../eras/linux90s/LinuxScene';
 import { PortalScene } from '../eras/portal2000s/PortalScene';
 import { BroadbandScene } from '../eras/broadband2000s/BroadbandScene';
+import { MobileScene } from '../eras/mobile2010s/MobileScene';
 import { EraPlaceholder } from '../components/EraPlaceholder';
 
 const scenes: Record<string, EraDescriptor['Scene']> = {
@@ -32,7 +33,7 @@ const scenes: Record<string, EraDescriptor['Scene']> = {
   portal2000s: PortalScene,
   // Built eras:
   broadband2000s: BroadbandScene,
-  mobile2010s: EraPlaceholder,
+  mobile2010s: MobileScene,
   infrastructure: EraPlaceholder,
   'ai-era': EraPlaceholder,
   future: EraPlaceholder,
@@ -48,6 +49,7 @@ const BUILT = new Set([
   'linux90s',
   'portal2000s',
   'broadband2000s',
+  'mobile2010s',
 ]);
 
 export const eraRegistry: EraDescriptor[] = ERA_LIST.map((data) => ({

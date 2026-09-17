@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-16 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)**)._
+_Last updated: 2026-09-17 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)** + **Phase 9: "Mobile & Cloud" (2010–2015)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (113/113, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (130/130, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -96,6 +96,24 @@ Playable today:
   Every claim is B-tagged (B1–B16) to `docs/SOURCES.md`. Built on a pure,
   unit-tested `broadbandEngine` (state tracks `chapter`, `branch` (locked
   once chosen; REVISE rescinds it), `edits`, `uploads`, `planRead`).
+- **Mobile & Cloud era (exhibit 09, 2010–2015)** — told in THREE CHAPTERS
+  around one fork, rendered in a period-style phone screen: CH 1 (2010)
+  "The Phone Becomes the Computer" — the smartphone (M1), the iPad
+  (M2), LTE "transitional" 4G / 3.95G (M3–M4), the mobile web (M5–M6),
+  the ITU's early-2010 five-year forecast (M7); CHECK THE PHONE (signal
+  panel, illustrative). CH 2 (2012) "Your Stuff Moves to the Cloud" — the
+  fork: HISTORY: THE CLOUD WINS (iCloud M9, Google Drive M10, Dropbox
+  M11, Spotify M12, Netflix M13) vs. WHAT IF: EVERYTHING STAYS ON THE
+  DEVICE (a LABELED HYPOTHETICAL — the sync queue dims); SYNC FILES
+  (capped at 6, illustrative queue); NIST "on-demand self-service"
+  (M8). CH 3 (2015) "The App Economy" — the App Store (M14), Google Play
+  (M15), smartphone sales surpassing feature phones in early 2013 (M16),
+  the ITU forecast landing (M7); INSTALL APP (capped at 6, illustrative
+  queue). Skipping to 2015 undecided gets a recovery path back to the
+  fork. Every claim is M-tagged (M1–M16) to `docs/SOURCES.md`. Built on
+  a pure, unit-tested `mobileEngine` (state tracks `chapter`, `branch`
+  (locked once chosen; REVISE rescinds it), `phoneChecked`, `syncs`,
+  `installs`).
 - All other 4 eras render a styled "UNDER CONSTRUCTION" placeholder so the
   timeline is navigable end-to-end.
 
@@ -183,11 +201,14 @@ green: `tsc --noEmit`, `vite build`, `npm test` (96/96).
    2005–2009, three chapters + YouTube fork; claims B1–B16 in SOURCES.md;
    article pane / edit history / upload queue / line-status panel are
    ILLUSTRATIVE recreations, labeled as such).
-4. **Phase 9 — mobile2010s** (`mobile2010s`, 2010–2015, "Mobile & Cloud"):
-   verify dates/claims first → new section in SOURCES.md before any UI
-   copy; named services/apps are ILLUSTRATIVE recreations and must be
-   labeled as such.
-5. Later eras per plan; each phase ends at build+test green + checkpoint.
+4. ~~**Phase 9 — mobile2010s** (`mobile2010s`)~~ — done (exhibit 09,
+   2010–2015, three chapters + cloud fork; claims M1–M16 in SOURCES.md;
+   phone screen / home screen / sync queue / app queue are ILLUSTRATIVE
+   recreations, labeled as such).
+5. **Phase 10 — infrastructure** (`infrastructure`): submarine cables /
+   undersea network; use a reputable dataset (Telegeography/OpenSubmap)
+   before writing any UI copy (see SOURCES.md "Other eras").
+6. Later eras per plan; each phase ends at build+test green + checkpoint.
 
 ## Known Issues
 
@@ -351,10 +372,10 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (113/113: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  (130/130: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
   switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
   tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 11
-  broadbandEngine unit tests, 2 App smoke tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
+  broadbandEngine unit tests, 11 mobileEngine unit tests, 2 App smoke tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
   tests, 4 Tcpip1983Scene component tests, 4 DialupScene component tests,
   4 CernWebScene component tests, 6 LinuxScene component tests covering
   the three-chapter visitor arc (1991 announcement with zero clicks, 1992
@@ -366,7 +387,11 @@ Read in this order to resume:
   6 BroadbandScene component tests covering the three-chapter visitor arc
   (2005 encyclopedia with zero clicks, 2007 fork both branches + upload
   cap + DMCA/Viacom beat, 2009 line status + FCC plan + Wikipedia scale,
-  skip-ahead recovery, closing cards)).
+  skip-ahead recovery, closing cards), 6 MobileScene component tests
+  covering the three-chapter visitor arc (2010 phone with zero clicks,
+  2012 fork both branches + sync cap + cloud-vs-local beat, 2015 app
+  economy + install cap + ITU-forecast-landing, skip-ahead recovery,
+  closing cards)).
 - **Unverified**: real-browser visuals (canvas trails, node button
   alignment, SVG hop animation, expansion growth map: population dots +
   ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
@@ -389,24 +414,26 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (113 tests expected)
+npm test           # GATE: vitest (130 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. Committed (Exhibit 08: Broadband & the Open Web, 2005–2009 —
-   three-chapter open-web narrative + YouTube fork (history vs. labeled
-   WHAT IF) — build+tests green (113/113)).
-2. Begin Phase 9 (mobile/cloud era, `mobile2010s`, 2010–2015).
+1. Committed (Exhibit 09: Mobile & Cloud, 2010–2015 — three-chapter
+   mobile narrative + cloud fork (history vs. labeled WHAT IF) —
+   build+tests green (130/130)).
+2. Begin Phase 10 (infrastructure era, `infrastructure`).
    Follow the established pattern:
    - Verify every claim → new section in `docs/SOURCES.md` (numbered tags)
-     BEFORE writing any UI copy (see SOURCES.md "Other eras").
+     BEFORE writing any UI copy (see SOURCES.md "Other eras" — submarine
+     cables: use a reputable dataset, e.g. Telegeography/OpenSubmap).
    - `src/simulations/<name>/` — pure data + pure logic (RNG/state injectable)
      + `.test.ts` (≥6 unit tests) + `use<Name>Sim.ts` hook + component(s).
    - `src/eras/<id>/<Scene>.tsx` + component tests (≥3, incl. one full user
-     arc); `src/styles/eras/<era>.css` (theme `.theme-2000s` already exists).
-   - Add the scene to the registry `scenes` map + `broadband2000s` to
+     arc); `src/styles/eras/<era>.css` (theme `.theme-mobile`/`.theme-modern`
+     already exist in themes.css).
+   - Add the scene to the registry `scenes` map + `infrastructure` to
      `BUILT` in `src/app/eraRegistry.ts` once gated.
 3. Gate before moving on: `npm run build` + `npm test` green, then update
    this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.

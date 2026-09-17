@@ -2,6 +2,81 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-17 — Exhibit 09: Mobile & Cloud (2010–2015)
+
+**Decision (with user):** the `mobile2010s` slot (2010–2015) becomes a
+three-chapter narrative rendered in a period-style phone screen:
+CH 1 (2010) "The Phone Becomes the Computer" (the smartphone, M1; the
+first-generation iPad, January 27, 2010, M2; LTE — "transitional" 4G /
+3.95G — M3, first public LTE service Oslo/Stockholm December 14, 2009,
+M4; the mobile web, M5–M6; the ITU's early-2010 five-year forecast, M7),
+CH 2 (2012) "Your Stuff Moves to the Cloud" (NIST "on-demand
+self-service", M8; iCloud M9; Google Drive April 24, 2012, M10; Dropbox
+M11; Spotify M12; Netflix M13; the fork: HISTORY — THE CLOUD WINS vs.
+WHAT IF — EVERYTHING STAYS ON THE DEVICE, a LABELED HYPOTHETICAL),
+CH 3 (2015) "The App Economy" (the App Store July 10, 2008, M14;
+Android Market → Google Play, M15; smartphone sales surpassing feature
+phones in early 2013, M16; the ITU 2010 forecast landing, M7).
+
+**Research (gate, all claims verbatim-verified 2026-09-17):**
+Wikipedia "Smartphone", "iPad", "LTE (telecommunication)", "Mobile web",
+"Cloud computing", "iCloud", "Google Drive", "Dropbox", "Spotify",
+"Netflix", "App Store (Apple)", "Google Play" (extracted from live
+wikitext). Deliberately omitted: the ITU's later "true 4G" IMT-Advanced
+designation (article covers 3.95G/transitional 4G — UI says "4G/LTE" only
+as era-name shorthand); Google Drive free-storage size (current article
+cites the 15 GB tier — UI claims no GB figure); the App Store's launch
+app count ("500 apps" appears only in citation titles, not article body);
+Google Play "3.5 million apps" (2017 figure, outside the era);
+Spotify/Netflix subscriber counts (2022/2026 figures, outside the era).
+→ `docs/SOURCES.md` "Mobile & Cloud (exhibit 09)" (M1–M16) + "Other
+eras" placeholder updated (subsumes the old cloud2000s/social2010s
+placeholders).
+
+**Built:**
+- `src/simulations/mobile2010s/mobileData.ts` — chapters
+  (kicker/story/takeaway/tag), branch defs (one `hypothetical: true`),
+  per-chapter M-tagged facts, illustrative pools (sync queue, app queue,
+  home-screen grid, signal-panel rows — all labeled illustrative).
+- `src/simulations/mobile2010s/mobileEngine.ts` — pure reducer:
+  SET_CHAPTER (free), CHECK_PHONE (2010 only, once), CHOOSE_BRANCH
+  (once, after 2010; recoverable from 2015), SYNC_FILES (2012 only, cap
+  6), INSTALL_APP (2015 only, cap 6), RECONSIDER, RESET; illegal actions
+  are no-ops returning the same state; `note` drives the live region.
+- `src/simulations/mobile2010s/mobileEngine.test.ts` — 11 unit tests.
+- `src/simulations/mobile2010s/useMobileSim.ts` — hook wiring state +
+  `sound.uiTick/relayClick/keyClick` (SoundManager singleton).
+- `src/simulations/mobile2010s/CloudPhone.tsx` — the artifact: a phone
+  frame (status bar + signal bars, illustrative) with 2010 home screen
+  (icon grid + CHECK THE PHONE → signal panel + iPad/LTE/ITU bubbles),
+  2012 cloud pane (SYNC FILES queue; cloud rows "IN THE CLOUD" vs. the
+  dimmed local-only "ON THIS DEVICE" rows; THE CLOUD WINS (HISTORY)
+  callout vs. the WHAT IF status line), 2015 app-store pane (INSTALL APP
+  queue + "THE NUMBERS LAND" M16 + ITU-landing line).
+- `src/eras/mobile2010s/MobileScene.tsx` — stepper, chapter card, 2012
+  fork card (Decision recorded + REVISE DECISION), 2015 undecided
+  recovery card, closing card (branch line + START OVER), per-chapter
+  FACTS (SOURCE-VERIFIED), simplified-simulation footnote.
+- `src/eras/mobile2010s/MobileScene.test.tsx` — 6 component tests (2010
+  zero-click, 2012 history branch + sync cap + cloud callout, 2012 WHAT
+  IF labeled, 2015 app economy + install arc + ITU landing, skip-to-2015
+  recovery, closing + facts + footnote).
+- `src/styles/eras/mobile2010s.css` — `mc-` styles on the existing tokens
+  (`.theme-mobile`); phone frame + status bar + icon grid + queue/track
+  rows; transitions disabled under `prefers-reduced-motion`; single
+  column under 860px.
+- `src/app/eraRegistry.ts` — `mobile2010s: MobileScene` + added to
+  `BUILT`.
+
+**Gates:** `npm test` 130/130 (19 files) + `npm run build` green
+(tsc -b + vite build, 104 modules).
+
+**Note:** the in-screen fork mini buttons use distinct labels
+("THE CLOUD WINS (HISTORY)" / "STAYS ON DEVICE (WHAT IF)") from the fork
+card labels ("HISTORY: The cloud wins" / "WHAT IF: Everything stays on
+the device") so Testing Library's regex name queries stay unambiguous —
+same convention as the broadband era's mini fork.
+
 ## 2026-09-16 — Exhibit 08: Broadband & the Open Web (2005–2009)
 
 **Decision (with user):** the `broadband2000s` slot (2005–2009) becomes a
