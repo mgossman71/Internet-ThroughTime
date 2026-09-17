@@ -2,6 +2,44 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-17 — The Road Ahead (speculative, beyond 2026) — ALL sections built
+
+**Decision (with user):** the final tab ("The Road Ahead") becomes a real,
+clearly-marked SPECULATIVE section instead of the "UNDER CONSTRUCTION"
+placeholder. Because it is the future, it has NO canonical fork: it is a menu
+of three open questions, each with two labeled FORECASTS the visitor can lean
+toward and freely switch (a lean is NOT locked). Every forecast is an
+extrapolation of the verified 2025–2026 anchors (AI5 "agentic / on-device /
+multimodal", AI2 multimodal, AI4 "type of ML model") — nothing new is
+asserted, and a "deliberately not asserted" list keeps it honest (no dates,
+products, or AGI timeline).
+
+**Research (gate):** reuses the verified AI-era anchors already in
+`docs/SOURCES.md` (AI1–AI5); added a "The Road Ahead (speculative section)"
+block (F1–F3) with the "deliberately NOT asserted" list, and updated the
+"Other eras" note to "all timeline sections now built."
+
+**Built:**
+- `src/simulations/future/` — `futureData.ts` (3 open questions + 2 labeled
+  forecasts each, verified anchors, lede, deliberately-not-asserted list),
+  `futureEngine.ts` (pure reducer: per-question `lean`, changeable, not
+  locked; `leanedCount`), `futureEngine.test.ts` (8), `useFutureSim.ts`
+  (hook + `sound.uiTick` / `successChime`), `FrontierBoard.tsx` (the live
+  FORECAST BOARD scoreboard — read-only).
+- `src/eras/future/` — `FutureScene.tsx` (lede + verified anchors + three
+  open questions with lean buttons + tally/clear + deliberately-not-asserted
+  + footnote) + `FutureScene.test.tsx` (6, incl. lean/switch/tally/clear arc);
+  `src/styles/eras/future.css` (reuses `.theme-future`).
+- `src/app/eraRegistry.ts` — `future: FutureScene` + `'future'` in `BUILT`;
+  `EraPlaceholder` kept only as the `?? ` fallback.
+
+**Gates:** `npm test` 178/178 green; `npm run build` green (tsc -b + vite;
+122 modules).
+
+**Also:** README status table updated (the 2000s→…→AI line and the
+"Speculative future" line are now ✅ built). The timeline is now complete
+end-to-end: intro + 11 historical exhibits + the speculative section.
+
 ## 2026-09-17 — Exhibits 10 & 11: The Connected Decade (2016–2022) + The AI Era (2022–2026)
 
 **Decision (with user):** the two unfinished post-2015 slots become real,

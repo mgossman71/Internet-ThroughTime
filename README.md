@@ -21,8 +21,8 @@ brought the World Wide Web into being.
 | BBS & dial-up | ✅ built |
 | CERN & the Web (1989–1993) | ✅ built |
 | Linux, 1991–1996 | ✅ built |
-| 2000s → mobile → infrastructure → AI | 🔜 coming soon |
-| Speculative future | 🔜 coming soon |
+| Portals, broadband, mobile, connected, AI (2000 → 2026) | ✅ built |
+| Speculative future (The Road Ahead, beyond 2026) | ✅ built |
 
 See `AI_CHECKPOINT.md` for the authoritative development state.
 

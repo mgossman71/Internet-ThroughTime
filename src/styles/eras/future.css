@@ -1,0 +1,265 @@
+/* ============================================================
+   EXHIBIT 12 — THE ROAD AHEAD (speculative, beyond 2026)
+   Left: lede + verified anchors + three open questions + tally +
+         "deliberately not asserted". Right: the live FORECAST BOARD.
+   Shared tokens come from base.css + themes.css (.theme-future).
+   Dashed borders + soft fills read as "not settled".
+   ============================================================ */
+
+.fa-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.fa-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.fa-left {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- cards ---------- */
+
+.fa-card {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fa-kicker {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.fa-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.fa-story {
+  margin: 0;
+  color: var(--fg);
+  line-height: 1.55;
+}
+
+.fa-takeaway {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 13px;
+}
+
+.fa-tag {
+  color: var(--accent);
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.fa-panel-h {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.fa-forecast {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.fa-facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fa-facts li {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.fa-tally {
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.fa-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.fa-footnote {
+  margin: 0;
+  font-size: 11px;
+  color: var(--fg-dim);
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+
+/* ---------- sides (lean buttons) ---------- */
+
+.fa-sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fa-side {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 10px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.fa-side:hover {
+  border-color: var(--accent);
+}
+
+.fa-side-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.fa-side-label {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- FORECAST BOARD (artifact) ---------- */
+
+.fb-board {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel, transparent);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: sticky;
+  top: 16px;
+}
+
+.fb-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+}
+
+.fb-head-t {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.fb-head-n {
+  font-size: 11px;
+  color: var(--fg-dim);
+}
+
+.fb-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fb-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px dashed var(--panel-border);
+  padding-bottom: 10px;
+}
+
+.fb-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fb-row-q {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+}
+
+.fb-row-sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.fb-side {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.fb-side-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 12px var(--glow);
+}
+
+.fb-foot {
+  margin: 0;
+  font-size: 11px;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+/* ---------- motion + responsive ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-side {
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .fa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-board {
+    position: static;
+  }
+}

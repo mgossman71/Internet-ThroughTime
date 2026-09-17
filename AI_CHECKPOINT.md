@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-17 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)** + **Phase 9: "Mobile & Cloud" (2010–2015)** + **Phase 10: "The Connected Decade" (2016–2022)** + **Phase 11: "The AI Era" (2022–2026, in progress)**)._
+_Last updated: 2026-09-17 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)** + **Phase 9: "Mobile & Cloud" (2010–2015)** + **Phase 10: "The Connected Decade" (2016–2022)** + **Phase 11: "The AI Era" (2022–2026, in progress)** + **Phase 12: "The Road Ahead" (speculative, beyond 2026 — ALL timeline sections now built)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (164/164, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (178/178, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -143,9 +143,17 @@ Playable today:
   explicitly framed as in-progress, not settled. Built on a pure,
   unit-tested `aiEngine` (state tracks `chapter`, `branch` (locked once
   chosen; REVISE rescinds it), `asks`, `modelLoaded`, `frontierOpen`).
-- The remaining era (the speculative "future" / The Road Ahead) renders a
-  styled "UNDER CONSTRUCTION" placeholder so the timeline is navigable
-  end-to-end.
+- **The Road Ahead (speculative, beyond 2026)** — NOT a historical record
+  and NOT a prediction: a menu of three open questions (Who acts? / Where
+  does it live? / What does it reach?), each with two labeled FORECASTS the
+  visitor can lean toward and freely switch (a lean is NOT locked, unlike the
+  historical eras). Every forecast is an extrapolation of the verified
+  2025–2026 anchors (AI5/AI2/AI4) already in `docs/SOURCES.md`; the "why
+  it's open" is grounded in the verified agentic / on-device / multimodal
+  threads, and a "deliberately not asserted" list keeps it honest (no dates,
+  products, or AGI timeline). Reuses the existing `.theme-future` + the
+  CRTShell "SPECULATIVE SECTION" banner. Built on a pure, unit-tested
+  `futureEngine` (state tracks a per-question `lean`; `leanedCount`).
 
 Global systems working: central timeline store, era theme switching (8
 themes), CRT shell (scanlines/vignette), synthesized sound (off by default,
@@ -402,7 +410,7 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (164/164: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  (178/178: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
   switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
   tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 11
   broadbandEngine unit tests, 11 mobileEngine unit tests, 2 App smoke tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
@@ -428,7 +436,11 @@ Read in this order to resume:
   cards), 11 aiEngine unit tests + 6 AiEraScene component tests covering
   the three-chapter visitor arc (2022 chat with zero asks, 2023 fork both
   branches + model beat + ask cap, 2025 frontier + open frontier +
-  in-progress framing, skip-ahead recovery, closing cards)).
+  in-progress framing, skip-ahead recovery, closing cards), 8 futureEngine
+  unit tests + 6 FutureScene component tests covering the speculative arc
+  (three open questions each with two labeled forecasts, lean a side + reveal
+  the forecast + switch your mind (not locked), board tally 0/3 → 1/3 → 3/3,
+  clear my leans, and the "deliberately not asserted" list)).
 - **Unverified**: real-browser visuals (canvas trails, node button
   alignment, SVG hop animation, expansion growth map: population dots +
   ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
@@ -451,29 +463,33 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (164 tests expected)
+npm test           # GATE: vitest (178 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. Committed (Exhibit 10: The Connected Decade, 2016–2022 — three-chapter
-   connected narrative + metaverse-vs-AI fork (history vs. labeled WHAT IF);
-   and Exhibit 11: The AI Era, 2022–2026 in progress — three-chapter AI
-   narrative + tool-vs-AGI fork, 2025–2026 framed as CURRENT / in-progress).
-   The post-2015 timeline is now date-honest (2016–2022 → 2022–2026; the
-   old vague "Today" and mis-dated "2023–" slots are gone). Build+tests
-   green (164/164).
-2. Remaining: the speculative "future" / The Road Ahead era (still an
-   UNDER CONSTRUCTION placeholder; `docs/SOURCES.md` "Other eras" notes it
-   has no recorded claims yet — it is deliberately speculative, so unlike
-   the historical eras it does NOT need sourced claims first). If/when
-   building it, follow the established pattern:
-   - `src/simulations/<name>/` — pure data + pure logic + `.test.ts` (≥6
-     unit tests) + `use<Name>Sim.ts` hook + component(s).
-   - `src/eras/<id>/<Scene>.tsx` + component tests (≥3, incl. one full user
-     arc); `src/styles/eras/<era>.css` (`.theme-modern` exists in themes.css).
-   - Add the scene to the registry `scenes` map + the id to `BUILT` in
-     `src/app/eraRegistry.ts` once gated.
-3. Gate before moving on: `npm run build` + `npm test` green, then update
-   this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.
+1. Committed: ALL timeline sections are now built — Exhibit 10: The
+   Connected Decade (2016–2022), Exhibit 11: The AI Era (2022–2026, in
+   progress), and the speculative "The Road Ahead" (beyond 2026). The
+   post-2015 timeline is date-honest (2016–2022 → 2022–2026), and the final
+   "future" tab is a real, clearly-marked speculative section (a menu of open
+   questions with labeled forecasts — NOT a prediction, NOT a locked fork).
+   Build+tests green (178/178).
+2. The "Road Ahead" is the last tab and it is now BUILT (it replaced the
+   UNDER CONSTRUCTION placeholder). It is deliberately speculative: every
+   forecast is an extrapolation of the verified 2025–2026 anchors (AI5/AI2/
+   AI4) recorded in `docs/SOURCES.md` "The Road Ahead (speculative section)",
+   and a "deliberately not asserted" list keeps it honest (no dates, products,
+   or AGI timeline). Files: `src/simulations/future/` (futureData,
+   futureEngine + 8 tests, useFutureSim, FrontierBoard) + `src/eras/future/`
+   (FutureScene + 6 tests) + `src/styles/eras/future.css` (reuses
+   `.theme-future`). Wired: `future: FutureScene` in the registry `scenes`
+   map + `'future'` in `BUILT`; `EraPlaceholder` remains only the `?? `
+   fallback.
+3. If adding anything new, follow the established pattern: pure
+   `src/simulations/<name>/` (data + logic + `.test.ts`) + `use<Name>Sim.ts`
+   + a component; `src/eras/<id>/<Scene>.tsx` + component tests (incl. one
+   full user arc); `src/styles/eras/<era>.css`; then add to the registry
+   `scenes` map + `BUILT`. Gate: `npm run build` + `npm test` green, then
+   update this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.

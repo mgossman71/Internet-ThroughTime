@@ -312,13 +312,34 @@ post-2023 models; the chat console's prompt/response lines, the "models" panel
 rows, and the "frontier" status chrome (illustrative); and the "WHAT IF: AGI
 is already here" branch (labeled a hypothetical — no AI-tag).
 
+## The Road Ahead (speculative section, beyond 2026)
+
+**This section is NOT a historical record and NOT a prediction.** It is a
+menu of open questions, each with two labeled FORECASTS the visitor can lean
+toward and change. Every forecast is an extrapolation of the verified
+2025–2026 anchors recorded in "The AI Era (exhibit 11)" above (AI5, AI2,
+AI4) — nothing new is asserted, and no dates, products, or AGI timeline are
+claimed. UI copy cites only those anchor tags (AI1/AI2/AI4/AI5).
+
+| # | Open question | Why it's open (verified anchor) | Forecasts (both labeled "a forecast") |
+|---|---|---|---|
+| F1 | Who acts? | The wave is "agentic" (AI5); an LLM is a type of ML model (AI4). | AGENTS ACT FOR YOU / YOU STAY IN THE LOOP — extrapolations of the agentic thread (AI5; AI1, AI4). |
+| F2 | Where does it live? | The wave is "on-device" (AI5). | IT'S EVERYWHERE, INVISIBLE / BACK TO THE PERSONAL — extrapolations of on-device (AI5). |
+| F3 | What does it reach? | The wave is "multimodal" (AI5); GPT-4 accepts image input (AI2). | ALL THE SENSES / TEXT AND CODE — extrapolations of the multimodal thread (AI5, AI2). |
+
+**Deliberately NOT asserted (2026-09-17):** no dates or timelines; no named
+future products or companies; no claim that AGI will (or won't) arrive, or
+when; no specific technology named as the "winner"; and no forecast stated as
+settled fact. The "forecast" text in the UI is illustrative extrapolation,
+labeled as such in every case.
+
 ## Other eras
 
-_Still pending: the speculative future section ("The Road Ahead") — no
-claims recorded yet. Recorded above: linux90s 1991–1996 ("Linux, 1991–1996
-(exhibit 06)"); portal2000s 2000–2004 ("Portals, P2P & Search (exhibit 07)");
-broadband2000s 2005–2009 ("Broadband & the Open Web (exhibit 08)");
-mobile2010s 2010–2015 ("Mobile & Cloud (exhibit 09)", subsumes the earlier
-"cloud2000s" and "social2010s" placeholders); connected-decade 2016–2022
-("The Connected Decade (exhibit 10)"); and ai-era 2022–2026 ("The AI Era
-(exhibit 11)")._
+_All timeline sections are now built. Recorded above: the intro prologue;
+arpanet 1969 (exhibit 01); expansion 1971–1982 (exhibit 02); tcpip 1983
+(exhibit 03); bbs/dial-up 1986–1994 (exhibit 04); cern-web 1989–1993
+(exhibit 05); linux90s 1991–1996 (exhibit 06); portal2000s 2000–2004
+(exhibit 07); broadband2000s 2005–2009 (exhibit 08); mobile2010s 2010–2015
+(exhibit 09); connected-decade 2016–2022 (exhibit 10); ai-era 2022–2026
+(exhibit 11); and the speculative future ("The Road Ahead", beyond 2026 —
+forecasts, not facts)._
