@@ -266,14 +266,59 @@ bar, signal bars, sync-queue rows, and app-queue rows (illustrative
 chrome); and the "WHAT IF: everything stays on the device" branch is
 labeled speculation, not a sourced claim (no M-tag).
 
+## The Connected Decade (exhibit 10, 2016–2022)
+
+Verified 2026-09-17 via Wikipedia article text + infobox/TOC (fetched live).
+UI copy uses C1–C8; anything under "Deliberately omitted" is unverified or
+illustrative and carries NO tag.
+
+| # | Claim (as shown in UI) | Source | URL | Notes |
+|---| --- | --- | --- | --- |
+| C1 | 5G is "fifth-generation mobile telecommunications standard"; infobox: "Year started 2015", "Base standards IMT-2020", "Predecessor 4G (LTE, WiMAX)", "Successor 6G (in development)" | Wikipedia "5G" (lead + infobox) | https://en.wikipedia.org/wiki/5G | UI says 5G "builds on 4G/LTE" and comes after 4G — matches Predecessor/Successor. |
+| C2 | 5G history has a named phase "Commercial rollout (2019–2021)", then "Recent developments (2022–present)" | Wikipedia "5G" (Contents/TOC: History §1.3, §1.4) | https://en.wikipedia.org/wiki/5G | UI frames 5G as arriving commercially 2019–2021. Exact first operator/date NOT asserted. |
+| C3 | "Disney+ … launched on November 12, 2019"; "subscribers 131.6 million (November 2025)" | Wikipedia "Disney+" (lead + infobox) | https://en.wikipedia.org/wiki/Disney%2B | Backs the streaming-wars beat (Disney entering the market Nov 2019). |
+| C4 | "TikTok is an international Chinese social media platform that hosts user-generated short videos… operated by ByteDance"; Douyin (China) launched 2016, international version 2017 | Wikipedia "TikTok" (lead + History) | https://en.wikipedia.org/wiki/TikTok | Backs short-form video as the rising format. Exact international month NOT asserted. |
+| C5 | Facebook's history covers "2018–2020: Focus on the metaverse" and "2021: Rebrand as Meta" | Wikipedia "Meta Platforms" (Contents/TOC) | https://en.wikipedia.org/wiki/Meta_Platforms | Backs "2021: the industry bet on the metaverse." Exact rebrand day NOT asserted. |
+| C6 | GPT-3 released May 2020, "the largest language model published at the time" (175B parameters) | Wikipedia "Large language model" (GPT-3 / T-NLG, May 2020) | https://en.wikipedia.org/wiki/Large_language_model | Backs "big models existed before ChatGPT." UI says "a large language model (GPT-3)". |
+| C7 | ChatGPT "gained 100 million users within two months of its launch" (Jan 2023), "the fastest-growing consumer application to date" | Wikipedia "ChatGPT" (History/Usage) | https://en.wikipedia.org/wiki/ChatGPT | The "AI is coming" closing beat for 2022; also AI1. |
+| C8 | Meta: "2025: Policy shifts and AI investments", "2026: Investments in AI" | Wikipedia "Meta Platforms" (Contents/TOC) | https://en.wikipedia.org/wiki/Meta_Platforms | Backs the pivot: by 2025–26 the metaverse money flowed to AI (fork conclusion). |
+
+**Deliberately omitted (2026-09-17):** the first 5G commercial operator + exact
+date (only the 2019–2021 window is confirmed); TikTok's exact international
+launch month (UI says "2017"); Meta's exact rebrand day (UI says "2021");
+subscriber counts beyond Disney+'s Nov-2025 figure; the short-video feed,
+streaming-app grid, VR-headset chrome, 5G signal bars, and "like" counters
+(illustrative); and the "WHAT IF: the metaverse becomes the next platform"
+branch (labeled a hypothetical — no C-tag).
+
+## The AI Era (exhibit 11, 2022–2026, in progress)
+
+Verified 2026-09-17 via Wikipedia article text (fetched live). The 2025–2026
+material is deliberately framed as CURRENT / in-progress, NOT settled history.
+UI copy uses AI1–AI5.
+
+| # | Claim (as shown in UI) | Source | URL | Notes |
+|---| --- | --- | --- | --- |
+| AI1 | "ChatGPT is a generative artificial intelligence chatbot based on the OpenAI-developed GPT-3.5 large language model"; "gained 100 million users within two months of its launch" (Jan 2023) | Wikipedia "ChatGPT" (lead + infobox + History) | https://en.wikipedia.org/wiki/ChatGPT | Launch date Nov 30, 2022 from infobox/History. "fastest-growing consumer application to date" matches the source wording. |
+| AI2 | GPT-4 was released in March 2023 and is multimodal (accepts image input) | Wikipedia "GPT-4" / "Large language model" (GPT-4, March 2023) | https://en.wikipedia.org/wiki/Large_language_model | Backs the "multimodal" beat — "GPT-4 (March 2023), multimodal". |
+| AI3 | ChatGPT is "based on" GPT-3.5 (the underlying large language model) | Wikipedia "ChatGPT" (lead/infobox) | https://en.wikipedia.org/wiki/ChatGPT | Backs "ChatGPT runs on GPT-3.5". |
+| AI4 | A large language model is "a type of machine learning model" (generative AI / deep-learning family) | Wikipedia "Large language model" (lead) | https://en.wikipedia.org/wiki/Large_language_model | General framing used in the lede. |
+| AI5 | The 2024–2026 period is ongoing: 5G "Recent developments (2022–present)"; Meta "2025 / 2026: AI investments" — i.e. this era is CURRENT | Wikipedia "5G" (TOC) + "Meta Platforms" (TOC) | https://en.wikipedia.org/wiki/5G | UI labels 2025–2026 as "in progress / current as of September 2026", not settled. No 2024–26 model name asserted (see omitted). |
+
+**Deliberately omitted (2026-09-17):** any specific 2024–2026 flagship model
+name (a "GPT-6" / "Astra" label appeared in a fetched infobox but could NOT
+be independently confirmed, so it is NOT used); benchmark/score figures for
+post-2023 models; the chat console's prompt/response lines, the "models" panel
+rows, and the "frontier" status chrome (illustrative); and the "WHAT IF: AGI
+is already here" branch (labeled a hypothetical — no AI-tag).
+
 ## Other eras
 
-_No claims recorded yet — add entries here before writing UI copy for:
-infrastructure (submarine cables — use a reputable dataset, e.g.
-Telegeography/OpenSubmap), and the speculative future section.
-(linux90s 1991–1996 is recorded in the "Linux, 1991–1996 (exhibit 06)"
-section; portal2000s 2000–2004 in the "Portals, P2P & Search (exhibit 07)"
-section; broadband2000s 2005–2009 in the "Broadband & the Open Web
-(exhibit 08)" section; mobile2010s 2010–2015 in the "Mobile & Cloud
-(exhibit 09)" section above — it subsumes the earlier "cloud2000s" and
-"social2010s" placeholders.)_
+_Still pending: the speculative future section ("The Road Ahead") — no
+claims recorded yet. Recorded above: linux90s 1991–1996 ("Linux, 1991–1996
+(exhibit 06)"); portal2000s 2000–2004 ("Portals, P2P & Search (exhibit 07)");
+broadband2000s 2005–2009 ("Broadband & the Open Web (exhibit 08)");
+mobile2010s 2010–2015 ("Mobile & Cloud (exhibit 09)", subsumes the earlier
+"cloud2000s" and "social2010s" placeholders); connected-decade 2016–2022
+("The Connected Decade (exhibit 10)"); and ai-era 2022–2026 ("The AI Era
+(exhibit 11)")._

@@ -1,0 +1,539 @@
+/* ============================================================
+   EXHIBIT 10 — THE CONNECTED DECADE (2016–2022)
+   Left: chapters + interactive panels. Right: period-style
+   connected wall (feed → metaverse fork → 5G/AI handoff).
+   Shared tokens come from base.css + themes.css (.theme-modern).
+   ============================================================ */
+
+.cd-scene {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.cd-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(320px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.cd-left {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- chapter desk ---------- */
+
+.cd-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cd-step {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.cd-step:hover {
+  border-color: var(--accent);
+}
+
+.cd-step-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.cd-step-kicker {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--fg-dim);
+}
+
+.cd-step-title {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* ---------- cards ---------- */
+
+.cd-card {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cd-kicker {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cd-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.cd-story {
+  margin: 0;
+  color: var(--fg);
+  line-height: 1.55;
+}
+
+.cd-takeaway {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 13px;
+}
+
+.cd-tag {
+  color: var(--accent);
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.cd-panel-h {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.cd-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--fg-dim);
+}
+
+.cd-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.cd-facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cd-facts li {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cd-footnote {
+  margin: 0;
+  font-size: 11px;
+  color: var(--fg-dim);
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+
+/* ---------- buttons ---------- */
+
+.cd-btn {
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--fg);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.cd-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.cd-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.cd-btn-small {
+  padding: 6px 8px;
+  font-size: 11px;
+}
+
+.cd-btn-ghost {
+  background: transparent;
+  border-style: dashed;
+  color: var(--fg-dim);
+}
+
+.cd-btn-whatif {
+  border-color: rgba(255, 159, 107, 0.55);
+}
+
+/* ---------- 2016 feed ---------- */
+
+.cd-feed,
+.cd-meta,
+.cd-handoff {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cd-pane-h {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cd-tiles-h {
+  color: var(--fg-dim);
+}
+
+.cd-pane-sub {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-dim);
+}
+
+.cd-queue {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cd-queue-empty {
+  font-size: 12px;
+  color: var(--fg-dim);
+  font-style: italic;
+}
+
+.cd-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+}
+
+.cd-track-name {
+  font-size: 12px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cd-track-size {
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.cd-status-tag {
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+.cd-status-liked {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* streaming tiles (illustrative) */
+
+.cd-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cd-tile {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg);
+}
+
+/* callouts (inside the wall) */
+
+.cd-callout {
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--accent-soft);
+}
+
+.cd-callout-h {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cd-callout p:last-child {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---------- the connected wall (period prop) ---------- */
+
+.cd-wall {
+  position: sticky;
+  top: 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cd-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 6px;
+  border-bottom: 1px dashed var(--panel-border);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-dim);
+}
+
+.cd-sb-sig {
+  display: inline-flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.cd-bar {
+  display: inline-block;
+  width: 3px;
+  height: 8px;
+  border-radius: 1px;
+  background: var(--panel-border);
+}
+
+.cd-bar-on {
+  background: var(--accent);
+}
+
+.cd-screen {
+  min-height: 280px;
+}
+
+.cd-chrome-note {
+  margin: 0;
+  font-size: 10px;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+/* 5G network panel (illustrative) */
+
+.cd-net {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cd-net-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 6px 8px;
+}
+
+.cd-net-name {
+  font-size: 12px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cd-net-note {
+  color: var(--fg-dim);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cd-net-5g {
+  color: var(--accent);
+}
+
+.cd-net-lte {
+  color: #ff9f6b;
+}
+
+.cd-net-wlan {
+  color: var(--fg-dim);
+  border-style: dashed;
+}
+
+/* status lines inside the wall */
+
+.cd-status {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+
+.cd-status-frozen {
+  color: #ff6b6b;
+}
+
+.cd-status-grown {
+  color: var(--accent);
+}
+
+/* the fork (left panel) */
+
+.cd-fork {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cd-fork-opt {
+  text-align: left;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--fg);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.cd-fork-opt:hover {
+  border-color: var(--accent);
+}
+
+.cd-fork-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 14px var(--glow);
+}
+
+.cd-fork-whatif {
+  border-color: rgba(255, 159, 107, 0.55);
+}
+
+.cd-fork-name {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.cd-fork-sub {
+  font-size: 11px;
+  color: var(--fg-dim);
+  line-height: 1.4;
+}
+
+/* fork mini (inside the wall) */
+
+.cd-forkmini {
+  border: 1px dashed var(--panel-border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cd-forkmini-h {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+}
+
+.cd-forkmini-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- motion + responsive ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cd-step,
+  .cd-btn,
+  .cd-fork-opt {
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .cd-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-wall {
+    position: static;
+  }
+}

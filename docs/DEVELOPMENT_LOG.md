@@ -2,6 +2,62 @@
 
 Short dated entries for significant work. Newest first.
 
+## 2026-09-17 — Exhibits 10 & 11: The Connected Decade (2016–2022) + The AI Era (2022–2026)
+
+**Decision (with user):** the two unfinished post-2015 slots become real,
+date-honest eras instead of the vague "Today" / "2023–" placeholders:
+- `connected-decade` (was `infrastructure`): "The Connected Decade",
+  2016–2022 — three chapters (2016 The Feed / 2019–2021 The Metaverse Bet /
+  2022 AI Is Coming) around one fork: HISTORY — AI ANSWERS YOU vs. WHAT IF —
+  THE METAVERSE BECOMES THE NEXT PLATFORM (labeled hypothetical).
+- `ai-era`: "The AI Era", 2022–2026, framed as IN PROGRESS — three chapters
+  (2022 The Machine Answers / 2023 The Models Get Bigger / 2025–2026 AI
+  Everywhere, In Progress) around one fork: HISTORY — AI IS A TOOL vs.
+  WHAT IF — AGI IS ALREADY HERE (labeled hypothetical); the 2025–2026
+  material is framed as CURRENT as of September 2026 and is deliberately NOT
+  asserted beyond the verified beats.
+
+**Research (gate, all claims verbatim-verified 2026-09-17):**
+Wikipedia "5G" (lead + infobox + "Commercial rollout (2019–2021)" TOC),
+"Disney+" (lead, Nov 12, 2019 launch), "TikTok" (lead + Douyin 2016 /
+international 2017), "Meta Platforms" (TOC: metaverse focus, 2021 rebrand,
+2025/2026 AI investments), "Large language model" (GPT-3 May 2020; LLM = a
+type of ML model; GPT-4 March 2023 multimodal), "ChatGPT" (lead: GPT-3.5
+base; 100M users in two months; fastest-growing consumer app). Deliberately
+omitted: first 5G operator + date; TikTok international month; Meta rebrand
+day; any 2024–2026 flagship model name (a "GPT-6"/"Astra" label appeared in
+one infobox but could NOT be independently confirmed, so NOT used); and both
+WHAT IF branches (labeled hypothetical). → `docs/SOURCES.md` "The Connected
+Decade (exhibit 10)" (C1–C8) + "The AI Era (exhibit 11)" (AI1–AI5) + "Other
+eras" note updated.
+
+**Built:**
+- `src/simulations/connected-decade/` — `connectedData.ts` (chapters,
+  branches, C-tagged facts, illustrative feed/tile/5G pools),
+  `connectedEngine.ts` (pure reducer: `likes` cap, `metaverseEntered`,
+  `connected5g`, branch lock/reconsider), `connectedEngine.test.ts` (11),
+  `useConnectedSim.ts` (hook + sound), `ConnectedWall.tsx` (the period prop).
+- `src/eras/connected-decade/` — `ConnectedScene.tsx` (three-chapter left
+  column + wall) + `ConnectedScene.test.tsx` (6, incl. skip-ahead recovery
+  arc); `src/styles/eras/connected-decade.css`.
+- `src/simulations/ai-era/` — `aiData.ts` (chapters, branches, AI-tagged
+  facts, illustrative prompt/model/frontier pools), `aiEngine.ts` (pure
+  reducer: `asks` cap, `modelLoaded`, `frontierOpen`, branch
+  lock/reconsider), `aiEngine.test.ts` (11), `useAiSim.ts` (hook + sound),
+  `AiConsole.tsx` (the period prop).
+- `src/eras/ai-era/` — `AiEraScene.tsx` (three-chapter left column +
+  console) + `AiEraScene.test.tsx` (6, incl. skip-ahead recovery arc);
+  `src/styles/eras/ai-era.css`.
+- `src/data/eraList.ts` — `infrastructure` → `connected-decade` (2016–2022,
+  "The Connected Decade"); `ai-era` range "2023–" → "2022–2026" ("ChatGPT to
+  the present — networks that learn").
+- `src/app/eraRegistry.ts` — import + map `ConnectedScene` / `AiEraScene`,
+  add `connected-decade` + `ai-era` to `BUILT`. Both eras reuse the existing
+  `.theme-modern` (no new theme).
+
+**Gates:** `npm test` 164/164 green; `npm run build` green
+(tsc -b + vite; 116 modules transformed).
+
 ## 2026-09-17 — Exhibit 09: Mobile & Cloud (2010–2015)
 
 **Decision (with user):** the `mobile2010s` slot (2010–2015) becomes a

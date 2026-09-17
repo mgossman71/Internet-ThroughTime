@@ -19,6 +19,8 @@ import { LinuxScene } from '../eras/linux90s/LinuxScene';
 import { PortalScene } from '../eras/portal2000s/PortalScene';
 import { BroadbandScene } from '../eras/broadband2000s/BroadbandScene';
 import { MobileScene } from '../eras/mobile2010s/MobileScene';
+import { ConnectedScene } from '../eras/connected-decade/ConnectedScene';
+import { AiEraScene } from '../eras/ai-era/AiEraScene';
 import { EraPlaceholder } from '../components/EraPlaceholder';
 
 const scenes: Record<string, EraDescriptor['Scene']> = {
@@ -34,8 +36,8 @@ const scenes: Record<string, EraDescriptor['Scene']> = {
   // Built eras:
   broadband2000s: BroadbandScene,
   mobile2010s: MobileScene,
-  infrastructure: EraPlaceholder,
-  'ai-era': EraPlaceholder,
+  'connected-decade': ConnectedScene,
+  'ai-era': AiEraScene,
   future: EraPlaceholder,
 };
 
@@ -50,6 +52,8 @@ const BUILT = new Set([
   'portal2000s',
   'broadband2000s',
   'mobile2010s',
+  'connected-decade',
+  'ai-era',
 ]);
 
 export const eraRegistry: EraDescriptor[] = ERA_LIST.map((data) => ({

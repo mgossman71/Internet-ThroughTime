@@ -1,12 +1,12 @@
 # Internet Through Time — AI Development Checkpoint
 
-_Last updated: 2026-09-17 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)** + **Phase 9: "Mobile & Cloud" (2010–2015)**)._
+_Last updated: 2026-09-17 (Phase 0 + Phase 1 + Docker Compose + Phase 2 "1971–1982 expansion" + Phase 3 "1983 protocol switch" + Phase 4 "dial-up/BBS" + Phase 5 "CERN & the Web (1989–1993)" + Phase 6 "Browsers & Personal Pages (1993–1996)" complete + Phase 6 follow-up: 1993 first-run guidance fix + Phase 6 restructure: three-chapter narrative + **Phase 6 REPLACED: "Linux, 1991–1996" (The Code Becomes a Commons)** + **Phase 7: "Portals, P2P & Search" (2000–2004)** + **Phase 8: "Broadband & the Open Web" (2005–2009)** + **Phase 9: "Mobile & Cloud" (2010–2015)** + **Phase 10: "The Connected Decade" (2016–2022)** + **Phase 11: "The AI Era" (2022–2026, in progress)**)._
 
 ## Current Project State
 
 Working React 18 + TypeScript + Vite 5 app. **Runs via Docker Compose**
 (`docker compose up --build` → http://localhost:8080, verified healthy).
-Build green (`tsc -b && vite build`), tests green (130/130, vitest + Testing Library).
+Build green (`tsc -b && vite build`), tests green (164/164, vitest + Testing Library).
 
 Playable today:
 - **Intro era** — prologue scene with typewriter lede + "Enter the Museum".
@@ -114,8 +114,38 @@ Playable today:
   a pure, unit-tested `mobileEngine` (state tracks `chapter`, `branch`
   (locked once chosen; REVISE rescinds it), `phoneChecked`, `syncs`,
   `installs`).
-- All other 4 eras render a styled "UNDER CONSTRUCTION" placeholder so the
-  timeline is navigable end-to-end.
+- **The Connected Decade (exhibit 10, 2016–2022)** — told in THREE CHAPTERS
+  around one fork, rendered in a period-style connected wall: CH 1 (2016)
+  "The Feed" — short-form video (TikTok/Douyin, C4), streaming (C3);
+  LIKE VIDEO (capped at 6, illustrative queue). CH 2 (2019–2021) "The
+  Metaverse Bet" — 5G rollout 2019–2021 (C1–C2), Disney+ Nov 12, 2019 (C3),
+  Meta's metaverse focus + 2021 rebrand (C5), GPT-3 May 2020 (C6); the fork:
+  HISTORY: AI ANSWERS YOU vs. WHAT IF: THE METAVERSE BECOMES THE NEXT
+  PLATFORM (a LABELED HYPOTHETICAL); ENTER METAVERSE (once, illustrative).
+  CH 3 (2022) "AI Is Coming" — ChatGPT 100M users in two months (C7), the
+  baton passes to the AI era (C8); CONNECT 5G (once, illustrative). Skipping
+  to 2022 undecided gets a recovery path back to the fork. Every claim is
+  C-tagged (C1–C8) to `docs/SOURCES.md`. Built on a pure, unit-tested
+  `connectedEngine` (state tracks `chapter`, `branch` (locked once chosen;
+  REVISE rescinds it), `likes`, `metaverseEntered`, `connected5g`).
+- **The AI Era (exhibit 11, 2022–2026, IN PROGRESS)** — told in THREE
+  CHAPTERS around one fork, rendered in a period-style AI console: CH 1
+  (2022) "The Machine Answers" — ChatGPT (GPT-3.5, AI1/AI3), 100M users in
+  two months (AI1), a large language model as a type of ML model (AI4); ASK
+  THE MACHINE (capped at 6, illustrative queue). CH 2 (2023) "The Models Get
+  Bigger" — GPT-4 March 2023, multimodal (AI2); the fork: HISTORY: AI IS A
+  TOOL vs. WHAT IF: AGI IS ALREADY HERE (a LABELED HYPOTHETICAL); LOAD THE
+  2023 MODEL (once, illustrative). CH 3 (2025–2026) "AI, Everywhere — In
+  Progress" — framed as CURRENT as of September 2026 (AI5), endpoints
+  deliberately NOT asserted; OPEN THE FRONTIER (once, illustrative). Skipping
+  to 2025 undecided gets a recovery path back to the fork. Every claim is
+  AI-tagged (AI1–AI5) to `docs/SOURCES.md`; the 2025–2026 material is
+  explicitly framed as in-progress, not settled. Built on a pure,
+  unit-tested `aiEngine` (state tracks `chapter`, `branch` (locked once
+  chosen; REVISE rescinds it), `asks`, `modelLoaded`, `frontierOpen`).
+- The remaining era (the speculative "future" / The Road Ahead) renders a
+  styled "UNDER CONSTRUCTION" placeholder so the timeline is navigable
+  end-to-end.
 
 Global systems working: central timeline store, era theme switching (8
 themes), CRT shell (scanlines/vignette), synthesized sound (off by default,
@@ -372,7 +402,7 @@ Read in this order to resume:
 ## Testing Status
 
 - **Gated green**: `npm run build` (tsc -b + vite build) and `npm test`
-  (130/130: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
+  (164/164: 9 routingEngine unit tests, 6 growthEngine unit tests, 8
   switchEngine unit tests, 9 dialupEngine unit tests, 9 cernwebEngine unit
   tests, 14 linuxEngine unit tests, 10 portalEngine unit tests, 11
   broadbandEngine unit tests, 11 mobileEngine unit tests, 2 App smoke tests, 2 ArpanetScene component tests, 3 Expansion70sScene component
@@ -391,7 +421,14 @@ Read in this order to resume:
   covering the three-chapter visitor arc (2010 phone with zero clicks,
   2012 fork both branches + sync cap + cloud-vs-local beat, 2015 app
   economy + install cap + ITU-forecast-landing, skip-ahead recovery,
-  closing cards)).
+  closing cards), 11 connectedEngine unit tests + 6 ConnectedScene
+  component tests covering the three-chapter visitor arc (2016 feed with
+  zero likes, 2021 fork both branches + 5G/metaverse beats + like cap,
+  2022 handoff + connect 5G + ChatGPT beat, skip-ahead recovery, closing
+  cards), 11 aiEngine unit tests + 6 AiEraScene component tests covering
+  the three-chapter visitor arc (2022 chat with zero asks, 2023 fork both
+  branches + model beat + ask cap, 2025 frontier + open frontier +
+  in-progress framing, skip-ahead recovery, closing cards)).
 - **Unverified**: real-browser visuals (canvas trails, node button
   alignment, SVG hop animation, expansion growth map: population dots +
   ghost nodes at all viewports, 1983 flag-day sweep: NCP→TCP/IP colors,
@@ -414,26 +451,29 @@ docker compose ps                  # health (web should be "healthy")
 npm install        # setup (already done in this workspace)
 npm run dev        # dev server
 npm run build      # GATE: type-check + production build
-npm test           # GATE: vitest (130 tests expected)
+npm test           # GATE: vitest (164 tests expected)
 npm run preview    # serve dist/
 ```
 
 ## Immediate Resume Instructions
 
-1. Committed (Exhibit 09: Mobile & Cloud, 2010–2015 — three-chapter
-   mobile narrative + cloud fork (history vs. labeled WHAT IF) —
-   build+tests green (130/130)).
-2. Begin Phase 10 (infrastructure era, `infrastructure`).
-   Follow the established pattern:
-   - Verify every claim → new section in `docs/SOURCES.md` (numbered tags)
-     BEFORE writing any UI copy (see SOURCES.md "Other eras" — submarine
-     cables: use a reputable dataset, e.g. Telegeography/OpenSubmap).
-   - `src/simulations/<name>/` — pure data + pure logic (RNG/state injectable)
-     + `.test.ts` (≥6 unit tests) + `use<Name>Sim.ts` hook + component(s).
+1. Committed (Exhibit 10: The Connected Decade, 2016–2022 — three-chapter
+   connected narrative + metaverse-vs-AI fork (history vs. labeled WHAT IF);
+   and Exhibit 11: The AI Era, 2022–2026 in progress — three-chapter AI
+   narrative + tool-vs-AGI fork, 2025–2026 framed as CURRENT / in-progress).
+   The post-2015 timeline is now date-honest (2016–2022 → 2022–2026; the
+   old vague "Today" and mis-dated "2023–" slots are gone). Build+tests
+   green (164/164).
+2. Remaining: the speculative "future" / The Road Ahead era (still an
+   UNDER CONSTRUCTION placeholder; `docs/SOURCES.md` "Other eras" notes it
+   has no recorded claims yet — it is deliberately speculative, so unlike
+   the historical eras it does NOT need sourced claims first). If/when
+   building it, follow the established pattern:
+   - `src/simulations/<name>/` — pure data + pure logic + `.test.ts` (≥6
+     unit tests) + `use<Name>Sim.ts` hook + component(s).
    - `src/eras/<id>/<Scene>.tsx` + component tests (≥3, incl. one full user
-     arc); `src/styles/eras/<era>.css` (theme `.theme-mobile`/`.theme-modern`
-     already exist in themes.css).
-   - Add the scene to the registry `scenes` map + `infrastructure` to
-     `BUILT` in `src/app/eraRegistry.ts` once gated.
+     arc); `src/styles/eras/<era>.css` (`.theme-modern` exists in themes.css).
+   - Add the scene to the registry `scenes` map + the id to `BUILT` in
+     `src/app/eraRegistry.ts` once gated.
 3. Gate before moving on: `npm run build` + `npm test` green, then update
    this checkpoint + `docs/DEVELOPMENT_LOG.md` + `docs/SOURCES.md`.
